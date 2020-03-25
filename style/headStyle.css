@@ -1,26 +1,18 @@
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-  
-.sticky + .content {
-    padding-top: 102px;
-}
-
 #head {
+    width: 100%;
     background-color: black;
     padding-top: 2%;
     padding-bottom: 2%;
+    text-align: center;
 }
 
 #aboutMe,
 #resume,
 #contactMe {
     color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'VT323', monospace;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 30px;
 }
 
 #aboutMe:hover,

@@ -1,28 +1,58 @@
-#about {
-    padding-top: 10%;
-    color: white;
-    font-family: monospace;
-    font-size: 10px;
+body {
     background: linear-gradient(
-        rgba(0,16,49,0.75), 
-        rgba(0,16,49,0.75)
+        rgba(0, 12, 30, 0.50), 
+        rgba(0, 12, 30, 0.50)
       ),
-      url(resources/background/background.jpg) no-repeat center center fixed; 
+      url(../resources/background/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
-#summary {
-    padding-top: 2px;
+#menu {
+    background: linear-gradient(
+        rgba(68, 0, 68, 0.5), 
+        rgba(68, 0, 68, 0.50)
+      );
+      background-size: 0%;
+      padding-top: 10%;
+      transition-delay: 100ms;
+}
+
+#menuName {
+    color: white;
+    font-family: 'Acme', sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+#aboutMenu {
+    padding-bottom: 70%;
+}
+
+#content {
+    color: white;
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+    padding-top: 10%;
 }
 
 #baseSummary {
-    padding-top: 1%;
+    padding-top: 45%;
+    padding-left: 60%;
     color: #e91e63;
+    font-size: 35px;
+    font-family: 'Bellota', cursive;
 }
 
 #myImage {
-    height: 25%;
+    height: 100%;
+    width: 100%;
+}
+
+#internContent {
+    padding-top: 5%;
+
+    padding-bottom: 40%;
 }
