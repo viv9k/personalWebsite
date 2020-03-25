@@ -1,9 +1,17 @@
 #about {
     padding-top: 10%;
-    background-color: black;
     color: white;
     font-family: monospace;
     font-size: 10px;
+    background: linear-gradient(
+        rgba(0,16,49,0.75), 
+        rgba(0,16,49,0.75)
+      ),
+      url(resources/background/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #summary {
@@ -13,4 +21,8 @@
 #baseSummary {
     padding-top: 1%;
     color: #e91e63;
+}
+
+#myImage {
+    height: 25%;
 }
