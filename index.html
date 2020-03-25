@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style/headStyle.css">
     <link rel="stylesheet" href="style/bodyStyle.css">
+    <link rel="stylesheet" href="style/generalTools.css">
 </head>
 
 <body>
@@ -21,15 +22,10 @@
         <div class="col"></div>
     </div>
     <div class="row" id="bodyContent">
-        <div class="col-md-4" id="menu">
-            <div class="row menuName" id="menuName">
-                <div class="col" id="aboutMenu">
-                    About Me
-                </div>
-            </div>
-            <div class="row menuName" id="menuName">
+        <div class="col-md-4" id="aboutMenuCover">
+            <div class="row menuName" id="aboutMenu">
                 <div class="col">
-                    Internship Experience
+                    About Me
                 </div>
             </div>
         </div>
@@ -37,12 +33,12 @@
             <div class="row" id="aboutContent">
                 <div class="col-md-5" id="about">
                     <div class="row">
-                        <div class="col">
-                            A tech savvy enthusiast person
-                            <br>
-                            getting my hands dirty with open source and firmware.
-                            <br>
-                            Passionate to learn development for new technologies.
+                        <div class="col-md-12">
+                            <p>
+                                A tech savvy enthusiast person
+                                getting my hands dirty with open source and firmware.
+                                Passionate to learn development for new technologies.
+                            </p>
                         </div>
                     </div>
                     <div class="row" id="baseSummary">
@@ -60,25 +56,123 @@
                 </div>
                 <div class="col"></div>
             </div>
-            <div class="row" id="internContent">
+        </div>
+    </div>
+    <div class="row" id="bodyContent">
+        <div class="col-md-4" id="internMenuCover">
+            <div class="row menuName" id="internMenu">
                 <div class="col">
-                    Google Summer of Code is Global program that helps student to connect with Open Source,
-                    <br>
-                    free software and technology related organization to write code and work on their open projects to make the internet a better place.
-                    <br>
-                    Students need to submit their project proposal and work on the project for 3 months.
-                    <br>
-                    In this program, I have submitted a proposal for making an agent into tool Fossology to integrate Clearly Defined into it. 
+                    Internship Experience
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" id="content">
+            <div class="row .belowContent" id="internContent">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Google Summer Of Code - 2019</h3>
+                            <p>
+                                Google Summer of Code is Global program that helps student to connect with Open Source, free software and technology
+                                related organization to write code and work on their open projects to make the internet a better place.
+                                Students need to submit their project proposal and work on the project for 3 months.
+                                In this program, I have submitted a proposal for making an agent into tool Fossology to integrate Clearly Defined into it. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div href="http://bit.ly/spasht-oss" id="projectProposal" class="links">Project Proposal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="bodyContent">
+        <div class="col-md-4" id="projectMenuCover">
+            <div class="row menuName" id="projectMenu">
+                <div class="col">
+                    Project Experience
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" id="content">
+            <div class="row .belowContent" id="projectContent">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>FOSSology.org</h3>
+                            
+                            <h4>Spasht - Integration of ClearlyDefined with FOSSology</h4>
+                            <ul>
+                                <li>
+                                    PHP, C, C++, JavaScript, HTML, CSS
+                                </li>
+                                <li>
+                                    Postgres (basic use)
+                                </li>
+                                <li>
+                                    Twig
+                                </li>
+                                <li>
+                                    Terminals (Ubuntu)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div href="https://github.com/vivekaindia/fossology/wiki/GSoC-Final-Report:-Agent-Spasht" id="projectReport" class="links">Project Report</div>
+                        </div>
+                    </div>
+                    <div class="row" id="multipleProject">
+                        <div class="col-md-6">
+                            <h3>Sathyabama Institute of Science and Technology</h3>
+                            
+                            <h4>IntelliDoctor - AI based Medical Assistant</h4>
+                            <ul>
+                                <li>
+                                    Kotlin, xml
+                                </li>
+                                <li>
+                                    Google Firebase
+                                </li>
+                                <li>
+                                    Android
+                                </li>
+                            </ul>
+
+                            <p>
+                                IntelliDoctor is an Artificial Intelligence (AI) based personal medical assistant. In an attempt to provide
+                                smart healthcare and making it more accessible, this is an interactive application that analyses
+                                symptoms to diagnose, predict medical conditions, generate treatments and suggestions based on
+                                the inputs provided by the user.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="resources/icons/summer_of_code.png" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div href="https://goo.gl/nQwBFa" id="projectAbstract" class="links">Project Abstract</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     
+    
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="script/stickeyHeader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="script/bodyScript.js"></script>
+    <script src="script/setScrollScript.js"></script>
 </body>
 
 </html>

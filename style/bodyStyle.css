@@ -10,7 +10,9 @@ body {
     background-size: cover;
 }
 
-#menu {
+#aboutMenuCover,
+#internMenuCover,
+#projectMenuCover {
     background: linear-gradient(
         rgba(68, 0, 68, 0.5), 
         rgba(68, 0, 68, 0.50)
@@ -20,15 +22,13 @@ body {
       transition-delay: 100ms;
 }
 
-#menuName {
+#aboutMenu,
+#internMenu,
+#projectMenu {
     color: white;
     font-family: 'Acme', sans-serif;
     font-size: 24px;
     text-align: center;
-}
-
-#aboutMenu {
-    padding-bottom: 70%;
 }
 
 #content {
@@ -39,7 +39,7 @@ body {
 }
 
 #baseSummary {
-    padding-top: 45%;
+    padding-top: 40%;
     padding-left: 60%;
     color: #e91e63;
     font-size: 35px;
@@ -51,8 +51,6 @@ body {
     width: 100%;
 }
 
-#internContent {
-    padding-top: 5%;
-
+#projectContent {
     padding-bottom: 40%;
 }
