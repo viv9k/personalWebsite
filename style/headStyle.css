@@ -1,0 +1,26 @@
+#fixedHeader {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    top: 0;
+}
+
+#head {
+    background-color: black;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#aboutMe,
+#resume,
+#contactMe {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+
+#aboutMe:hover,
+#resume:hover,
+#contactMe:hover {
+    color: #90caf9;
+}
