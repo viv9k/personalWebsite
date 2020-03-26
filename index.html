@@ -14,14 +14,33 @@
 </head>
 
 <body>
+
+    <!-- Header Section -->
+    
     <div class="row" id="head">
         <div class="col"></div>
         <div class="col-md-2" id="aboutMe">About Me!</div>
         <div class="col-md-1" id="resume">Resume</div>
         <div class="col-md-2" id="contactMe">Contact Me</div>
+        <div class="col-md-1" id="readingLens">
+            Reading lens
+        </div>
         <div class="col"></div>
     </div>
-    <div class="row" id="bodyContent">
+    
+    <!-- Reading lens -->
+
+    <div class="row bodyContent" id="readingLensComponent">
+        <div class="col"></div>
+        <div class="col">
+            <input type="range" class="custom-range" id="screenLight" min="0" max="100">
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <!-- Body Content -->
+
+    <div class="row bodyContent" id="bodyContent">
         <div class="col-md-4" id="aboutMenuCover">
             <div class="row menuName" id="aboutMenu">
                 <div class="col">
@@ -58,7 +77,7 @@
             </div>
         </div>
     </div>
-    <div class="row" id="bodyContent">
+    <div class="row bodyContent" id="bodyContent">
         <div class="col-md-4" id="internMenuCover">
             <div class="row menuName" id="internMenu">
                 <div class="col">
@@ -71,7 +90,11 @@
                 <div class="col">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Google Summer Of Code - 2019</h3>
+                            <div class="row" id="subHeading">
+                                <div class="col">
+                                    <h3>Google Summer Of Code - 2019</h3>
+                                </div>
+                            </div>
                             <p>
                                 Google Summer of Code is Global program that helps student to connect with Open Source, free software and technology
                                 related organization to write code and work on their open projects to make the internet a better place.
@@ -89,7 +112,7 @@
             </div>
         </div>
     </div>
-    <div class="row" id="bodyContent">
+    <div class="row bodyContent" id="bodyContent">
         <div class="col-md-4" id="projectMenuCover">
             <div class="row menuName" id="projectMenu">
                 <div class="col">
@@ -102,8 +125,11 @@
                 <div class="col">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>FOSSology.org</h3>
-                            
+                            <div class="row" id="subHeading">
+                                <div class="col">
+                                    <h3>FOSSology.org</h3>
+                                </div>
+                            </div>
                             <h4>Spasht - Integration of ClearlyDefined with FOSSology</h4>
                             <ul>
                                 <li>
@@ -129,7 +155,11 @@
                     </div>
                     <div class="row" id="multipleProject">
                         <div class="col-md-6">
-                            <h3>Sathyabama Institute of Science and Technology</h3>
+                            <div class="row" id="subHeading">
+                                <div class="col">
+                                    <h3>Sathyabama Institute of Science and Technology</h3>
+                                </div>
+                            </div>
                             
                             <h4>IntelliDoctor - AI based Medical Assistant</h4>
                             <ul>
@@ -152,7 +182,7 @@
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <img src="resources/icons/summer_of_code.png" alt="">
+                            <!-- <img src="resources/icons/summer_of_code.png" alt=""> -->
                         </div>
                     </div>
                     <div class="row">
@@ -171,8 +201,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="script/bodyScript.js"></script>
     <script src="script/setScrollScript.js"></script>
+    <script src="script/screenLightScript.js"></script>
 </body>
 
 </html>

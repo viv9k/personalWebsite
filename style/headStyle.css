@@ -8,7 +8,8 @@
 
 #aboutMe,
 #resume,
-#contactMe {
+#contactMe,
+#readingLens {
     color: white;
     font-family: 'VT323', monospace;
     cursor: pointer;
@@ -17,6 +18,11 @@
 
 #aboutMe:hover,
 #resume:hover,
-#contactMe:hover {
+#contactMe:hover,
+#readingLens:hover {
     color: #90caf9;
+}
+
+#readingLensComponent {
+    padding-top: 2%;
 }

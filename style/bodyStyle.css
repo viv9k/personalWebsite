@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(
-        rgba(0, 12, 30, 0.50), 
+        rgba(0, 12, 30, 0.5), 
         rgba(0, 12, 30, 0.50)
       ),
       url(../resources/background/background.jpg) no-repeat center center fixed; 
@@ -8,6 +8,13 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.bodyContent {
+    background: linear-gradient(
+        rgba(0, 12, 30, 0), 
+        rgba(0, 12, 30, 0)
+      );
 }
 
 #aboutMenuCover,
@@ -26,9 +33,18 @@ body {
 #internMenu,
 #projectMenu {
     color: white;
-    font-family: 'Acme', sans-serif;
-    font-size: 24px;
+    /* font-family: 'Acme', sans-serif; */
+    font-family: 'VT323', monospace;
+    font-size: 34px;
     text-align: center;
+    cursor: pointer;
+}
+
+#aboutMenu :hover,
+#internMenu :hover,
+#projectMenu :hover {
+    color: #00e5ff;
+    font-size: 40px;
 }
 
 #content {
@@ -38,11 +54,20 @@ body {
     padding-top: 10%;
 }
 
+#subHeading {
+    background: linear-gradient(
+        rgba(70, 0, 70, 0.5), 
+        rgba(70, 0, 70, 0.50)
+      );
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
 #baseSummary {
-    padding-top: 40%;
-    padding-left: 60%;
+    padding-top: 33%;
+    text-align: end;
     color: #e91e63;
-    font-size: 35px;
+    font-size: 30px;
     font-family: 'Bellota', cursive;
 }
 
