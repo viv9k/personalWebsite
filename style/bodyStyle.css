@@ -18,8 +18,11 @@ body {
 }
 
 #aboutMenuCover,
+#workMenuCover,
 #internMenuCover,
-#projectMenuCover {
+#projectMenuCover,
+#achievementMenuCover,
+#communityMenuCover {
     background: linear-gradient(
         rgba(68, 0, 68, 0.5), 
         rgba(68, 0, 68, 0.50)
@@ -30,8 +33,11 @@ body {
 }
 
 #aboutMenu,
+#workMenu,
 #internMenu,
-#projectMenu {
+#projectMenu,
+#achievementMenu,
+#communityMenu {
     color: white;
     /* font-family: 'Acme', sans-serif; */
     font-family: 'VT323', monospace;
@@ -41,8 +47,11 @@ body {
 }
 
 #aboutMenu :hover,
+#workMenu :hover,
 #internMenu :hover,
-#projectMenu :hover {
+#projectMenu :hover,
+#achievementMenu :hover,
+#communityMenu :hover {
     color: #00e5ff;
     font-size: 40px;
 }
@@ -56,11 +65,11 @@ body {
 
 #subHeading {
     background: linear-gradient(
+        to right,
         rgba(70, 0, 70, 0.5), 
-        rgba(70, 0, 70, 0.50)
+        rgba(0, 12, 30, 0.5)
       );
     padding-top: 2%;
-    padding-bottom: 1%;
 }
 
 #baseSummary {
@@ -76,6 +85,17 @@ body {
     width: 100%;
 }
 
-#projectContent {
+#communityMenu {
     padding-bottom: 40%;
+}
+
+#googleCrowdsource,
+#fossology,
+#hp {
+    font-size: 20px;
+    text-align: left;
+}
+
+#workFOSSology {
+    padding-top: 2%;
 }

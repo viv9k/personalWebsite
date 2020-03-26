@@ -1,18 +1,3 @@
-// window.onscroll = function() {myFunction()};
-
-// var header = document.getElementById("head");
-// var sticky = header.offsetTop;
-
-// function myFunction() {
-//   if (window.pageYOffset > sticky) {
-//     document.getElementById("menuName").style.width = "100%";
-//     document.getElementById("menuName").style.display = "";
-//   } else {
-//     document.getElementById("menuName").style.width = "0px";
-//     document.getElementById("menuName").style.display = "100%";
-//   }
-// }
-
 $('.menuName').ready(function() {
   $('.menuName').hide();
 });
@@ -25,22 +10,14 @@ $("#aboutMe").click(function() {
 
 $("#resume").click(function() {
   $([document.documentElement, document.body]).animate({
-      scrollTop: $("#internMenuCover").offset().top
+      scrollTop: $("#workMenuCover").offset().top
   }, 100);
 });
 
+// dummy Implementatiion of contact us
 
-$("#projectProposal").click(function() {
-  var url = $(this).attr('href'); 
-  window.open(url, '_blank');
-});
-
-$("#projectReport").click(function() {
-  var url = $(this).attr('href'); 
-  window.open(url, '_blank');
-});
-
-$("#projectAbstract").click(function() {
-  var url = $(this).attr('href'); 
-  window.open(url, '_blank');
+$("#contactMe").click(function() {
+  $('.bodyContent').slideUp(100);
+  $('.bodyContent').delay(5000).slideDown(100);
+  $('#readingLensComponent').slideUp(0);
 });

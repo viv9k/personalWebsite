@@ -18,7 +18,7 @@ h3 {
     font-size: 28px;
 }
 
-p {
+p, ul {
     text-align: justify;
-    font-size: 24px;
+    font-size: 20px;
 }
