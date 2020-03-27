@@ -21,14 +21,21 @@ $(".contactMeComponent").ready(function() {
 });
 
 $("#contactMe").click(function() {
-  $('.bodyContent').fadeOut(100);
-  $('.contactMeComponent').fadeIn(300);
+  $('.bodyContent').fadeOut(500);
+  $('#contactMeComponent').fadeIn(200);
   $('#footer').css('position', 'fixed');
 });
 
 $("#backToMainCover").click(function() {
   $('#footer').css('position', '');
-  $('.contactMeComponent').fadeOut(50);
-  $('.bodyContent').fadeIn(100);
+  $('.bodyContent').slideDown(20);
   $('#readingLensComponent').hide(0);
+  $('#contactMeComponent').fadeOut(100);
+});
+
+$("#closeToMain").click(function() {
+  $('#footer').css('position', '');
+  $('.bodyContent').slideDown(20);
+  $('#readingLensComponent').hide(0);
+  $('#contactMeComponent').fadeOut(100);
 });

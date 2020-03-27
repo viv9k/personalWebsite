@@ -30,15 +30,30 @@ p, ul {
 }
 
 #backToMainCover {
-    background: linear-gradient(
-        rgba(230, 81, 0, 1), 
-        rgba(230, 81, 0, 1)
-      );
+    background-color: #e65100;
+    cursor: pointer;
 }
 
+#backToMainCover:hover {
+    background-color: #69f0ae;
+}
+
+
 #backToMain {
-    position: relative;
-    top: 45%;
+    /* position: relative;
+    top: 45%; */
+    padding-top: 25%;
+    padding-bottom: 25%;
     text-align: center;
+}
+
+#closeToMain {
+    background-color: #e65100;
+    padding-top: 1%;
     cursor: pointer;
+    text-align: center;
+}
+
+#closeToMain:hover {
+    background-color: #69f0ae;
 }
