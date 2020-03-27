@@ -6,6 +6,8 @@
     font-size: 20px;
     text-align: center;
     width: 102%;
+    position: "";
+    bottom: 0;
 }
 
 #copyrightImage {

@@ -59,7 +59,9 @@ body {
 
 #content {
     color: white;
-    font-family: 'Acme', sans-serif;
+    /* font-family: 'Acme', sans-serif; */
+    /* font-family: 'Bree Serif', serif; */
+    font-family: 'Bellota', cursive;
     font-size: 20px;
     padding-top: 10%;
 }
@@ -70,6 +72,12 @@ body {
         rgba(70, 0, 70, 0.5), 
         rgba(0, 12, 30, 0.5)
       );
+      font-family: 'Comfortaa', cursive;
+      /* font-family: 'Bellota', cursive; */
+      /* font-family: 'Righteous', cursive; */
+      /* font-family: 'Poiret One', cursive; */
+      /* font-family: 'Alice', serif; */
+      /* font-family: 'Shrikhand', cursive; */
     padding-top: 2%;
 }
 
@@ -77,8 +85,10 @@ body {
     padding-top: 33%;
     text-align: end;
     color: #e91e63;
-    font-size: 30px;
-    font-family: 'Bellota', cursive;
+    font-size: 35px;
+    font-weight: 900;
+    font-family: 'Dancing Script', cursive;
+/* font-family: 'Satisfy', cursive; */
 }
 
 #myImage {
@@ -103,7 +113,6 @@ body {
 
 #contactMeComponent {
     color: white;
-    font-family: cursive;
     padding-top: 5%;
     padding-bottom: 5%;
 }
@@ -127,4 +136,5 @@ body {
 #contactMeContentBody {
     font-size: 24px;
     text-align: left;
+    font-family: 'Bree Serif', serif;
 }
