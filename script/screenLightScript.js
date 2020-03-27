@@ -1,6 +1,7 @@
 $("#screenLight").ready(function() {
 
     const $screenLight = $('#screenLight');
+    $('#screenLight').val(5);
 
     $screenLight.on('input change', () => {
 
