@@ -21,14 +21,14 @@ $(".contactMeComponent").ready(function() {
 });
 
 $("#contactMe").click(function() {
-  $('.bodyContent').slideUp(500);
+  $('.bodyContent').fadeOut(100);
   $('.contactMeComponent').fadeIn(300);
   $('#footer').css('position', 'fixed');
 });
 
-$("#backToMain").click(function() {
+$("#backToMainCover").click(function() {
   $('#footer').css('position', '');
   $('.contactMeComponent').fadeOut(50);
-  $('.bodyContent').slideDown(0);
+  $('.bodyContent').fadeIn(100);
   $('#readingLensComponent').hide(0);
 });

@@ -29,12 +29,16 @@ p, ul {
     font-family: 'Bellota', cursive;
 }
 
-#backToMain {
+#backToMainCover {
     background: linear-gradient(
         rgba(230, 81, 0, 1), 
         rgba(230, 81, 0, 1)
       );
-    padding-top: 15%;
+}
+
+#backToMain {
+    position: relative;
+    top: 45%;
     text-align: center;
     cursor: pointer;
 }
