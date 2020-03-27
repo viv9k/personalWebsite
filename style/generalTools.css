@@ -28,10 +28,11 @@ p, ul {
 }
 
 #backToMain {
-    padding-top: 18%;
+    background: linear-gradient(
+        rgba(230, 81, 0, 1), 
+        rgba(230, 81, 0, 1)
+      );
+    padding-top: 22%;
     text-align: center;
-}
-
-#backToMain :hover {
-    width: 20%;
+    cursor: pointer;
 }

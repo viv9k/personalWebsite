@@ -8,6 +8,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    
 }
 
 .bodyContent {
@@ -112,8 +113,8 @@ body {
         rgba(68, 0, 68, 0.5), 
         rgba(68, 0, 68, 0.50)
       );
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-bottom: 5%;
+    padding-top: 5%;
 }
 
 #contactMeContentHead {

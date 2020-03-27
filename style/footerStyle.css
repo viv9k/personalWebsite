@@ -5,6 +5,7 @@
     padding-bottom: 3%;
     font-size: 20px;
     text-align: center;
+    width: 102%;
 }
 
 #copyrightImage {
@@ -13,7 +14,6 @@
 
 #logos {
     padding-top: 5%;
-    padding-bottom: 5%;
 }
 
 .logo {
