@@ -8,5 +8,15 @@
 }
 
 #copyrightImage {
-    height: 50%;
+    height: 30%;
+}
+
+#logos {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.logo {
+    width: 100%;
+    cursor: pointer;
 }

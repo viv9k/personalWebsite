@@ -99,3 +99,31 @@ body {
 #workFOSSology {
     padding-top: 2%;
 }
+
+#contactMeComponent {
+    color: white;
+    font-family: cursive;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+#contactMeContent {
+    background: linear-gradient(
+        rgba(68, 0, 68, 0.5), 
+        rgba(68, 0, 68, 0.50)
+      );
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+#contactMeContentHead {
+    font-family: 'VT323', monospace;
+    font-size: 28px;
+    text-align: right;
+    color: #e65100;
+}
+
+#contactMeContentBody {
+    font-size: 24px;
+    text-align: left;
+}

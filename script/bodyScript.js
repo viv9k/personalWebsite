@@ -16,8 +16,17 @@ $("#resume").click(function() {
 
 // dummy Implementatiion of contact us
 
+$(".contactMeComponent").ready(function() {
+  $('.contactMeComponent').hide(0);
+});
+
 $("#contactMe").click(function() {
-  $('.bodyContent').slideUp(100);
-  $('.bodyContent').delay(5000).slideDown(100);
-  $('#readingLensComponent').slideUp(0);
+  $('.bodyContent').slideUp(500);
+  $('.contactMeComponent').fadeIn(300);
+});
+
+$("#backToMain").click(function() {
+  $('.contactMeComponent').fadeOut(50);
+  $('.bodyContent').slideDown(0);
+  $('#readingLensComponent').hide(0);
 });

@@ -22,3 +22,16 @@ p, ul {
     text-align: justify;
     font-size: 20px;
 }
+
+#phoneNumber {
+    font-size: 24px;
+}
+
+#backToMain {
+    padding-top: 18%;
+    text-align: center;
+}
+
+#backToMain :hover {
+    width: 20%;
+}

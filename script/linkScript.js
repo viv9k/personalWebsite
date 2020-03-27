@@ -37,3 +37,23 @@ $("#fossology").click(function() {
     var url = $(this).attr('href'); 
     window.open(url, '_blank');
 });
+
+$("#facebookLogo").click(function() {
+    var url = $(this).attr('href'); 
+    window.open(url, '_blank');
+});
+
+$("#twitterLogo").click(function() {
+    var url = $(this).attr('href'); 
+    window.open(url, '_blank');
+});
+
+$("#linkedinLogo").click(function() {
+    var url = $(this).attr('href'); 
+    window.open(url, '_blank');
+});
+
+$("#githubLogo").click(function() {
+    var url = $(this).attr('href'); 
+    window.open(url, '_blank');
+});
