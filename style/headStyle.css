@@ -9,7 +9,8 @@
 #aboutMe,
 #resume,
 #contactMe,
-#readingLens {
+#readingLens,
+#feedback {
     color: white;
     font-family: 'VT323', monospace;
     cursor: pointer;
@@ -19,7 +20,8 @@
 #aboutMe:hover,
 #resume:hover,
 #contactMe:hover,
-#readingLens:hover {
+#readingLens:hover,
+#feedback:hover {
     color: #90caf9;
 }
 

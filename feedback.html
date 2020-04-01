@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>FOSSboy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="resources/icons/favicon.png">
+    <link rel="stylesheet" href="style/fonts.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style/headStyle.css">
+    <link rel="stylesheet" href="style/bodyStyle.css">
+    <link rel="stylesheet" href="style/generalTools.css">
+    <link rel="stylesheet" href="style/footerStyle.css">
+    <link rel="stylesheet" href="style/feedbackStyle.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    
+    <div class="row" id="head">
+        <div class="col"></div>
+        <div class="col-md-2" id="aboutMe">About Me!</div>
+        <div class="col-md-1" id="resume">Resume</div>
+        <div class="col-md-2" id="contactMe">Contact Me</div>
+        <div class="col-md-2" id="readingLens" data-toggle="tooltip" data-placement="top" title="Ajust screen background to improve readability">Reading lens</div>
+        <div class="col-md-2" id="feedback">Feedback</div>
+        <div class="col"></div>
+    </div>
+    
+    
+    <!-- Feedback Form -->
+
+    <div class="row" id="feedbackCard">
+        <div class="col-md-3"></div>
+        <div class="col">
+
+            <!-- form window -->
+
+            <div class="row" id="formWindow">
+                <div class="col-md-1"></div>
+                <div class="col">
+                    <div class="row"  id="commentBoxHead">
+                        <div class="col">
+                            Comment:
+                            <input type="text" name="contentBox" id="contentBox">
+                        </div>
+                    </div>
+                    <div class="row" id="buttonCover">
+                        <div class="col" id="errorMessage"></div>
+                        <div class="col-md-3" id="submitbutton">
+                            Enter
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+            <!-- Thank you note -->
+
+            <div class="row" id="thankYouWindow">
+                <div class="col-md-1"></div>
+                <div class="col">
+                    Thank You For your Feedback
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <!-- Footer -->
+    
+    <div class="row" id="footer">
+        <div class="col"></div>
+        <div class="col">
+            <img src="resources/icons/copyright-white-18dp/2x/baseline_copyright_white_18dp.png" id="copyrightImage" alt="">
+            Copyright 2020 Vivek Kumar, India.
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">Stay Connected</div>
+            </div>
+            <div class="row" id="logos">
+                <div class="col">
+                    <img href="https://www.facebook.com/svivekindia" src="resources/icons/facebook.png" class="logo" id="facebookLogo" alt="" onclick="openLinkInNewTab('facebookLogo')">
+                    <img href="https://twitter.com/viv9k?lang=en" src="resources/icons/twitter.png" class="logo" id="twitterLogo" alt="" onclick="openLinkInNewTab('twitterLogo')">
+                    <img href="https://www.linkedin.com/in/viv9k" src="resources/icons/linkedin.png" class="logo" id="linkedinLogo" alt="" onclick="openLinkInNewTab('linkedinLogo')">
+                    <img href="https://github.com/viv9k" src="resources/icons/github.png" class="logo" id="githubLogo" alt="" onclick="openLinkInNewTab('githubLogo')">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="script/bodyScript.js"></script>
+    <script src="script/setScrollScript.js"></script>
+    <script src="script/screenLightScript.js"></script>
+    <script src="script/linkScript.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+
+    <script src="script/firebaseScript.js"></script>
+
+     
+</body>
+
+</html>

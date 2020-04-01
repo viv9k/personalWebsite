@@ -1,0 +1,40 @@
+#feedbackCard {
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+#formWindow,
+#thankYouWindow {
+    background: linear-gradient(
+        rgba(68, 0, 68, 0.5), 
+        rgba(68, 0, 68, 0.50)
+      );
+    padding-top: 5%;
+    padding-bottom: 4%;
+    border: 1px solid rgba(68, 0, 68, 0.50);
+}
+
+#commentBoxHead {
+    color: white;
+    font-size: 24px;
+}
+
+#contentBox {
+    height: 150%;
+    width: 100%;
+}
+
+#buttonCover {
+    padding-top: 15%;
+}
+
+#thankYouWindow {
+    color: #f50057;
+    font-size: 200%;
+    text-align: center;
+}
+
+#errorMessage {
+    color: red;
+    font-size: 24px;
+}

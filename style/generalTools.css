@@ -57,3 +57,16 @@ p, ul {
 #closeToMain:hover {
     background-color: #69f0ae;
 }
+
+#submitbutton {
+    background-color: #ffab00;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submitbutton:hover {
+    background-color: #ff6d00;
+}
