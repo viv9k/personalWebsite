@@ -16,25 +16,29 @@
 
 #commentBoxHead {
     color: white;
-    font-size: 24px;
+    font-size: 28px;
+    font-family: 'VT323', monospace;
+    color: #e65100;
 }
 
 #contentBox {
     height: 150%;
     width: 100%;
+    font-family: 'Bellota', cursive;
 }
 
 #buttonCover {
     padding-top: 15%;
+    font-family: 'Bellota', cursive;
 }
 
 #thankYouWindow {
-    color: #f50057;
+    color: #e65100;
     font-size: 200%;
     text-align: center;
 }
 
 #errorMessage {
-    color: red;
+    color: #e65100;
     font-size: 24px;
 }

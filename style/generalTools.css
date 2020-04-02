@@ -59,7 +59,7 @@ p, ul {
 }
 
 #submitbutton {
-    background-color: #ffab00;
+    background-color: #e65100;
     color: white;
     font-size: 24px;
     text-align: center;
@@ -68,5 +68,5 @@ p, ul {
 }
 
 #submitbutton:hover {
-    background-color: #ff6d00;
+    background-color: #69f0ae;
 }
