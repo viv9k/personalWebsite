@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>FOSSboy</title> 
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="resources/icons/favicon.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="style/workLoggingSystem.css">
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use 
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+     <script src="script/firebaseScript.js"></script>
+     <script>
+            // Initialize the FirebaseUI Widget using Firebase.
+            var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+            var uiConfig = {
+            callbacks: {
+            signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+            // User successfully signed in.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
+            return true;
+            },
+            uiShown: function() {
+            // The widget is rendered.
+            // Hide the loader.
+            document.getElementById('loader').style.display = 'none';
+            }
+            },
+            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+            signInFlow: 'popup',
+            signInSuccessUrl: 'workLoggingSystem.html',
+            signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users.
+            {
+            provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            scopes: [
+                    'https://www.googleapis.com/auth/contacts.readonly'
+                ],
+            },
+            firebase.auth.EmailAuthProvider.PROVIDER_ID
+            ]
+            // Terms of service url.
+            // tosUrl: '<your-tos-url>',
+            // // Privacy policy url.
+            // privacyPolicyUrl: '<your-privacy-policy-url>'
+            };  
+     </script>
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    
+    <div class="row" id="head">
+        <div class="col" id="createNewTaskButton">
+            <button id="createNewTaskButton">Create New Task</button>
+        </div>
+        <div class="col-md-2" id="userName">
+            Guest
+        </div>
+        <div class="col" id="login">
+            <button id="loginButton">Login</button>
+            <button id="signOutButton">Sign Out</button>
+        </div>
+    </div>
+
+    <div class="row" id="loginBody">
+        <div class="col">
+        </div>
+        <div class="col" id="loginContent">
+            <div class="row">
+                <div class="col-md-1" id="backToMain">
+                    <span class="material-icons">
+                        keyboard_backspace
+                    </span>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="firebaseui-auth-container"></div>
+                    <div id="loader">Loading...</div>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <div class="row" id="bodyContent">
+        <div class="col">
+            <div class="row" id="jobList">
+                <div class="col" id="jobTickets">
+                    <!-- Frame Template -->
+                    <!-- frame details -->
+
+                    <!-- <div class="row jobTicket">
+                        <div class="col-md-4 jobTicketCard" id="y" onclick="showDetails('y')">
+                            <div class="row frameHead">
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col menu">Id:</div>
+                                        <div class="col frameId">B0001</div>
+                                    </div>
+                                </div>
+                                <div class="col frameTitle">Ivestigation on job</div>
+                            </div>
+                            <div class="row frameContent">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col menu">Priority:</div>
+                                        <div class="col priority">High</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col menu">Assignee:</div>
+                                        <div class="col assignee">Vivek</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col menu">Creator:</div>
+                                        <div class="col creator">Vivek</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row detailsRow" id="yDetails">
+                                <div class="col">
+                                    <div class="row part">
+                                        <div class="col-md-2">
+                                            <button>Log Work</button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="row">
+                                                <div class="col menu">Id:</div>
+                                                <div class="col menuData">B0001</div>
+                                            </div>
+                                        </div>
+                                        <div class="col detailsTitle">Investigation on job</div>
+                                        <div class="col-md-2 editButton">
+                                            <button id="editDetailsButton">Edit</button>
+                                        </div>
+                                    </div>
+                                    <div class="row part">
+                                        <div class="col-md-2 menu">Description: </div>
+                                        <div class="col">
+                                            <div class="row desBox">
+                                                <div class="col">dasfjhdalfkadhfnasjkndjl uoasjkfajlsh ldjhlhd aasfhjkajkksakhasjdka;dja luishdljasiljdiasj djasjdiljasilfjilajild jasij dijasjilasjd</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                        </div>
+                                    </div>
+                                    <div class="row part">
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col menu">Priority:</div>
+                                                <div class="col menuData">High</div>
+                                            </div>
+                                        </div>
+                                        <div class="col"></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col menu">Difficulty:</div>
+                                                <div class="col menuData">Medium</div>
+                                            </div>
+                                        </div>
+                                        <div class="col"></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col menu">Assignee:</div>
+                                                <div class="col menuData">Vivek</div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col menu">Creator:</div>
+                                                <div class="col menuData">Vivek</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row part">
+                                        <div class="col-md-3">
+                                            <div class="row">
+                                                <div class="col menu">Extimated Time:</div>
+                                                <div class="col menuData">10h</div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col menu">Logged Time:</div>
+                                                <div class="col menuData">10h</div>
+                                            </div>
+                                        </div>
+                                        <div class="col"></div>
+                                        <div class="col-md-5">
+                                            <div class="row">
+                                                <div class="col menu">% of Work Code (Out of 100%):</div>
+                                                <div class="col menuData">20%</div>
+                                            </div>
+                                        </div>
+                                        <div class="col"></div>
+                                        <div class="col-md-3">
+                                            <div class="row">
+                                                <div class="col menu">Status:</div>
+                                                <div class="col menuData">UnderDevelopment</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- loading spinner -->
+
+                    <div class="row loadingPage">
+                        <div class="col"></div>
+                        <div class="col">
+                            <div class="spinner-border text-success" role="status">
+                                <span class="sr-only">Loading...</span>
+                              </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+            <button id="addRow">Add Row</button>
+        </div>
+    </div>
+
+
+    <!-- create new task -->
+
+    <div class="row" id="createNewTask">
+        <div class="col-md-2"></div>
+        <div class="col">
+            <div class="row" id="createNewTaskForm">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-1" id="backToMainFromCreateNewTask">
+                            <span class="material-icons">
+                                keyboard_backspace
+                            </span>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col-md-2 menu">Title:</div>
+                        <div class="col menuTitle">
+                            <input type="text" name="title" id="title">
+                        </div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col-md-2 menu">Description:</div>
+                        <div class="col menuDes">
+                            <input type="text" name="des" id="des">
+                        </div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Priority:</div>
+                                <div class="col menuPriority">
+                                    <input type="text" name="priority" id="priority" list="priorityTypes">
+                                    <datalist id="priorityTypes">
+                                        <option value="High"></option>
+                                        <option value="Medium"></option>
+                                        <option value="Low"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Difficulty:</div>
+                            <div class="col menuDifficulty">
+                                <input type="text" name="difficulty" id="difficulty" list="difficultyTypes">
+                                <datalist id="difficultyTypes">
+                                    <option value="High"></option>
+                                    <option value="Medium"></option>
+                                    <option value="Low"></option>
+                                </datalist>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Creator:</div>
+                                <div class="col menuCreator">
+                                    <input type="text" name="creator" id="creator">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4 menu">Assignee:</div>
+                                <div class="col menuAssignee">
+                                    <input type="text" name="assignee" id="assignee">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Estimated Time:</div>
+                                <div class="col menuETime">
+                                    <input type="number" name="estimatedTime" id="estimatedTime">
+                                    Hours.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Status:</div>
+                                <div class="col menuStatus">
+                                    <input type="text" name="status" id="status" list="statusTypes">
+                                    <datalist id="statusTypes">
+                                        <option value="Icebox"></option>
+                                        <option value="Ready to start"></option>
+                                        <option value="Under Progress"></option>
+                                        <option value="Blocked"></option>
+                                        <option value="Completed"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col"></div>
+                        <div class="col-md-2" id="createNewTaskSubmit">
+                            <button id="submitNewTask">Submit</button>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="row" id="logWork">
+        <div class="col">
+            <div class="row logWorkForm">
+                <div class="col-md-2"></div>
+                <div class="col logWorkFormComponent">
+                    <div class="row">
+                        <div class="col-md-1" id="backToMainFromLogWork">
+                            <span class="material-icons">
+                                keyboard_backspace
+                            </span>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <div class="row part">
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col menu">Id:</div>
+                                <div class="col menuData" id="logWorkId">B0001</div>
+                            </div>
+                        </div>
+                        <div class="col detailsTitle">Investigation on job</div>
+                    </div>
+                    <div class="row part">
+                        <div class="col menu">Extimated Time:</div>
+                        <div class="col menuData">10h</div>
+                    </div>
+                    <div class="row part">
+                        <div class="col menu">Remaining Time:</div>
+                        <div class="col menuData">10h</div>
+                    </div>
+                    <div class="row part">
+                        <div class="col-md-4 menu">Log Hours:</div>
+                        <div class="col menuLTime">
+                            <input type="number" name="logTime" id="logTime">
+                            Hours.
+                        </div>
+                    </div>
+                    <div class="row part">
+                        <div class="col-md-4 menu">Status:</div>
+                        <div class="col menuStatus">
+                            <input type="text" name="status" id="status" list="statusTypes">
+                            <datalist id="statusTypes">
+                                <option value="Icebox"></option>
+                                <option value="Ready to start"></option>
+                                <option value="Under Progress"></option>
+                                <option value="Blocked"></option>
+                                <option value="Completed"></option>
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="row part">
+                        <div class="col-md-4 menu">Comment:</div>
+                        <div class="col menuLTime">
+                            <input type="text" name="workComment" id="workComment">
+                        </div>
+                    </div>
+                    <div class="row part">
+                        <div class="col"></div>
+                        <div class="col-md-2" id="logWorkSubmit">
+                            <button id="logWorkSubmit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="style/fonts.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script src="script/workLoggingSystem.js"></script>
+    <script src="script/firebaseLogin.js"></script>
+</body>
+
+</html>

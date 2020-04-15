@@ -1,3 +1,12 @@
+$('#readingLens').ready(function(){
+    $('#readingLensComponent').hide();
+});
+
+$('#readingLens').click(function(){
+    $('#readingLensComponent').slideDown();
+    $('#readingLensComponent').delay(5000).slideUp();
+});
+
 $("#screenLight").ready(function() {
 
     const $screenLight = $('#screenLight');
@@ -18,12 +27,3 @@ $("#screenLight").ready(function() {
         $(".bodyContent").css('background', newValue);
     });
   });
-
-$('#readingLens').ready(function(){
-    $('#readingLensComponent').hide();
-});
-
-$('#readingLens').click(function(){
-    $('#readingLensComponent').slideDown();
-    $('#readingLensComponent').delay(5000).slideUp();
-});
