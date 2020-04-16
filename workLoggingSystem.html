@@ -25,7 +25,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
-     <script src="script/firebaseScript.js"></script>
+     <script src="script/firebaseScriptLogWork.js"></script>
      <script>
             // Initialize the FirebaseUI Widget using Firebase.
             var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -244,7 +244,6 @@
                     </div>
                 </div>
             </div>
-            <button id="addRow">Add Row</button>
         </div>
     </div>
 
@@ -267,13 +266,13 @@
                     <div class="row formComponent">
                         <div class="col-md-2 menu">Title:</div>
                         <div class="col menuTitle">
-                            <input type="text" name="title" id="title">
+                            <input type="text" name="title" id="titleCreateNewTask">
                         </div>
                     </div>
                     <div class="row formComponent">
                         <div class="col-md-2 menu">Description:</div>
                         <div class="col menuDes">
-                            <input type="text" name="des" id="des">
+                            <input type="text" name="des" id="desCreateNewTask">
                         </div>
                     </div>
                     <div class="row formComponent">
@@ -281,7 +280,7 @@
                             <div class="row">
                                 <div class="col-md-4 menu">Priority:</div>
                                 <div class="col menuPriority">
-                                    <input type="text" name="priority" id="priority" list="priorityTypes">
+                                    <input type="text" name="priority" id="priorityCreateNewTask" list="priorityTypes">
                                     <datalist id="priorityTypes">
                                         <option value="High"></option>
                                         <option value="Medium"></option>
@@ -294,7 +293,7 @@
                             <div class="row">
                                 <div class="col-md-4 menu">Difficulty:</div>
                             <div class="col menuDifficulty">
-                                <input type="text" name="difficulty" id="difficulty" list="difficultyTypes">
+                                <input type="text" name="difficulty" id="difficultyCreateNewTask" list="difficultyTypes">
                                 <datalist id="difficultyTypes">
                                     <option value="High"></option>
                                     <option value="Medium"></option>
@@ -307,14 +306,14 @@
                             <div class="row">
                                 <div class="col-md-4 menu">Creator:</div>
                                 <div class="col menuCreator">
-                                    <input type="text" name="creator" id="creator">
+                                    <input type="text" name="creator" id="creatorCreateNewTask">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-md-4 menu">Assignee:</div>
                                 <div class="col menuAssignee">
-                                    <input type="text" name="assignee" id="assignee">
+                                    <input type="text" name="assignee" id="assigneeCreateNewTask">
                                 </div>
                             </div>
                         </div>
@@ -324,7 +323,7 @@
                             <div class="row">
                                 <div class="col-md-4 menu">Estimated Time:</div>
                                 <div class="col menuETime">
-                                    <input type="number" name="estimatedTime" id="estimatedTime">
+                                    <input type="number" name="estimatedTime" id="estimatedTimeCreateNewTask">
                                     Hours.
                                 </div>
                             </div>
@@ -333,13 +332,26 @@
                             <div class="row">
                                 <div class="col-md-4 menu">Status:</div>
                                 <div class="col menuStatus">
-                                    <input type="text" name="status" id="status" list="statusTypes">
+                                    <input type="text" name="status" id="statusCreateNewTask" list="statusTypes">
                                     <datalist id="statusTypes">
                                         <option value="Icebox"></option>
                                         <option value="Ready to start"></option>
                                         <option value="Under Progress"></option>
                                         <option value="Blocked"></option>
                                         <option value="Completed"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Category:</div>
+                                <div class="col menuCategory">
+                                    <input type="text" name="category" id="categoryCreateNewTask" list="categoryTypes">
+                                    <datalist id="categoryTypes">
+                                        <option value="Business"></option>
+                                        <option value="Development"></option>
+                                        <option value="Marketting"></option>
                                     </datalist>
                                 </div>
                             </div>
@@ -425,6 +437,19 @@
         </div>
     </div>
 
+    <div class="row" id="successful">
+        <div class="col">
+            <div class="row" id="completedSuccussfully">
+                <div class="col"></div>
+                <div class="col">
+                    <span class="material-icons">
+                        done_outline
+                        </span>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
     <link rel="stylesheet" href="style/fonts.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

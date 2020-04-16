@@ -17,9 +17,28 @@ $("#backToMain").click(function() {
     $("#bodyContent").fadeIn(100);
 });
 
-$("#addRow").click(function() {
+$("#bodyContent").ready(function() {
+    var result = getTasks();
+
+    console.log(result);
+    $('.loadingPage').fadeOut(1000);
+});
+
+function setIntoTaskCard(id, data)
+{
     var tickets = document.getElementById("jobTickets").innerHTML;
-    var id = 'B0001';
+        
+    var title = data.Title;
+    var status = data.Status;
+    var priority = data.Priority;
+    var estimatedTime = data.ET;
+    var difficulty = data.Difficulty;
+    var des = data.Description;
+    var creator = data.Creator;
+    var category = data.Category;
+    var assignee = data.Assignee;
+
+    console.log (title, status, priority, estimatedTime, difficulty, des, creator, category, assignee);
 
     var frame = "<div class=\"row jobTicket\">";
     frame += "<div class=\"col-md-4 jobTicketCard\" id=\"";
@@ -31,28 +50,28 @@ $("#addRow").click(function() {
     frame += "<div class=\"col-md-3\">";
     frame += "<div class=\"row\">";
     frame += "<div class=\"col menu\">Id:</div>";
-    frame += "<div class=\"col frameId\">B0001</div>";
+    frame += "<div class=\"col frameId\">"+id+"</div>";
     frame += "</div>";         
     frame += "</div>";
-    frame += "<div class=\"col frameTitle\">Investigation on job</div>";
+    frame += "<div class=\"col frameTitle\">"+title+"</div>";
     frame += "</div>";
     frame += "<div class=\"row frameContent\">";
     frame += "<div class=\"col-md-4\">";
     frame += "<div class=\"row\">";      
     frame += "<div class=\"col menu\">Priority:</div>";
-    frame += "<div class=\"col priority\">High</div>";
+    frame += "<div class=\"col priority\">"+priority+"</div>";
     frame += "</div>";
     frame += "</div>";
     frame += "<div class=\"col-md-4\">";
     frame += "<div class=\"row\">";
     frame += "<div class=\"col menu\">Assignee:</div>";
-    frame += "<div class=\"col assignee\">Vivek</div>";
+    frame += "<div class=\"col assignee\">"+assignee+"</div>";
     frame += "</div>";
     frame += "</div>";
     frame += "<div class=\"col-md-4\">";
     frame += "<div class=\"row\">";
     frame += "<div class=\"col menu\">Creator:</div>";
-    frame += "<div class=\"col creator\">Vivek</div>";
+    frame += "<div class=\"col creator\">"+creator+"</div>";
     frame += "</div>";
     frame += "</div>";
     frame += "</div>";
@@ -75,7 +94,7 @@ $("#addRow").click(function() {
     frameDetails += "<div class=\"col menuData\">"+id+"</div>";
     frameDetails += "</div>";
     frameDetails += "</div>";
-    frameDetails += "<div class=\"col detailsTitle\">Investigation on job</div>";
+    frameDetails += "<div class=\"col detailsTitle\">"+title+"</div>";
     frameDetails += "<div class=\"col-md-2 editButton\">";
     frameDetails += "<button id=\"editDetailsButton\">Edit</button>";
     frameDetails += "</div>"; 
@@ -84,7 +103,7 @@ $("#addRow").click(function() {
     frameDetails += "<div class=\"col-md-2 menu\">Description: </div>";
     frameDetails += "<div class=\"col\">";
     frameDetails += "<div class=\"row desBox\">";  
-    frameDetails += "<div class=\"col\"></div>"; 
+    frameDetails += "<div class=\"col\">"+des+"</div>"; 
     frameDetails += "</div>"; 
     frameDetails += "</div>";
     frameDetails += "<div class=\"col-md-1\">";  
@@ -94,39 +113,39 @@ $("#addRow").click(function() {
     frameDetails += "<div class=\"col\">"; 
     frameDetails += "<div class=\"row\">";
     frameDetails += "<div class=\"col menu\">Priority:</div>";  
-    frameDetails += "<div class=\"col menuData\">High</div>";
+    frameDetails += "<div class=\"col menuData\">"+priority+"</div>";
     frameDetails += "</div>"; 
     frameDetails += "</div>";
     frameDetails += "<div class=\"col\"></div>";  
     frameDetails += "<div class=\"col\">";
     frameDetails += "<div class=\"row\">";
     frameDetails += "<div class=\"col menu\">Difficulty:</div>";
-    frameDetails += "<div class=\"col menuData\">Medium</div>";
+    frameDetails += "<div class=\"col menuData\">"+difficulty+"</div>";
     frameDetails += "</div>";
     frameDetails += "</div>";
     frameDetails += "<div class=\"col\"></div>"; 
     frameDetails += "<div class=\"col\">";
     frameDetails += "<div class=\"row\">";
     frameDetails += "<div class=\"col menu\">Assignee:</div>";
-    frameDetails += "<div class=\"col menuData\">Vivek</div>";
+    frameDetails += "<div class=\"col menuData\">"+assignee+"</div>";
     frameDetails += "</div>";
     frameDetails += "<br>";
     frameDetails += "<div class=\"row\">";
     frameDetails += "<div class=\"col menu\">Creator:</div>";
-    frameDetails += "<div class=\"col menuData\">Vivek</div>";
+    frameDetails += "<div class=\"col menuData\">"+creator+"</div>";
     frameDetails += "</div>";
     frameDetails += "</div>";
     frameDetails += "</div>";
     frameDetails += "<div class=\"row part\">";
     frameDetails += "<div class=\"col-md-3\">";
     frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">Extimated Time:</div>";
-    frameDetails += "<div class=\"col menuData\">10h</div>";
+    frameDetails += "<div class=\"col menu\">Estimated Time:</div>";
+    frameDetails += "<div class=\"col menuData\">"+estimatedTime+"h</div>";
     frameDetails += "</div>";
     frameDetails += "<br>";
     frameDetails += "<div class=\"row\">";
     frameDetails += "<div class=\"col menu\">Logged Time:</div>";
-    frameDetails += "<div class=\"col menuData\">10h</div>";
+    frameDetails += "<div class=\"col menuData\">0h</div>";
     frameDetails += "</div>";
     frameDetails += "</div>";
     frameDetails += "<div class=\"col\"></div>";
@@ -140,7 +159,7 @@ $("#addRow").click(function() {
     frameDetails += "<div class=\"col-md-3\">";
     frameDetails += "<div class=\"row\">";
     frameDetails += "<div class=\"col menu\">Status:</div>";
-    frameDetails += "<div class=\"col menuData\">UnderDevelopment</div>";
+    frameDetails += "<div class=\"col menuData\">"+status+"</div>";
     frameDetails += "</div>";
     frameDetails += "</div>";
     frameDetails += "</div>";
@@ -157,14 +176,9 @@ $("#addRow").click(function() {
         tickets += frame;
 
     document.getElementById("jobTickets").innerHTML = tickets;
-    $('.detailsRow').hide(0);
-    $('.loadingPage').hide(0);
-});
 
-$(".detailsRow").ready(function() {
-    $('.detailsRow').hide(0);
-});
-
+    return "ok";
+}
 
 var showingDetailsFor = "";
 var selectedId = "";
@@ -218,4 +232,32 @@ $("#backToMainFromLogWork").click (function() {
     $("#logWork").hide(0);
     $("#head").show(200);
     $("#bodyContent").show(200);
+});
+
+$("#submitNewTask").click(function() {
+    var title = $("#titleCreateNewTask").val();
+    var des = $("#desCreateNewTask").val();
+    var priority = $("#priorityCreateNewTask").val();
+    var difficulty = $("#difficultyCreateNewTask").val();
+    var creator = $("#creatorCreateNewTask").val();
+    var assignee = $("#assigneeCreateNewTask").val();
+    var estimatedTime = $("#estimatedTimeCreateNewTask").val();
+    var status = $("#statusCreateNewTask").val();
+    var category = $("#categoryCreateNewTask").val();
+
+    console.log(title);
+    console.log(des);
+    console.log(priority);
+    console.log(difficulty);
+    console.log(creator);
+    console.log(assignee);
+    console.log(estimatedTime);
+    console.log(status);
+    console.log(category);
+
+    createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category);
+});
+
+$("#successful").ready(function() {
+    $("#successful").hide(0);
 });

@@ -121,6 +121,10 @@ button:hover {
     padding: 2% 20% 2% 20%;
 }
 
+.detailsRow {
+    display: none;
+}
+
 .part {
     padding: 1% 1% 1% 1%;
 }
@@ -167,8 +171,8 @@ button:hover {
     padding: 2% 2% 2% 2%;
 }
 
-#title,
-#des {
+#titleCreateNewTask,
+#desCreateNewTask {
     width: 100%;
     height: 100%;
 }
@@ -196,4 +200,9 @@ button:hover {
 #workComment {
     width: 100%;
     height: 100%;
+}
+
+#completedSuccussfully {
+    padding-top: 10%;
+    text-align: center;
 }
