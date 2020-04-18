@@ -25,45 +25,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+    <script src="script/workLoggingSystemData.js"></script>
      <script src="script/firebaseScriptLogWork.js"></script>
-     <script>
-            // Initialize the FirebaseUI Widget using Firebase.
-            var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-            var uiConfig = {
-            callbacks: {
-            signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-            // User successfully signed in.
-            // Return type determines whether we continue the redirect automatically
-            // or whether we leave that to developer to handle.
-            return true;
-            },
-            uiShown: function() {
-            // The widget is rendered.
-            // Hide the loader.
-            document.getElementById('loader').style.display = 'none';
-            }
-            },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: 'workLoggingSystem.html',
-            signInOptions: [
-            // Leave the lines as is for the providers you want to offer your users.
-            {
-            provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            scopes: [
-                    'https://www.googleapis.com/auth/contacts.readonly'
-                ],
-            },
-            firebase.auth.EmailAuthProvider.PROVIDER_ID
-            ]
-            // Terms of service url.
-            // tosUrl: '<your-tos-url>',
-            // // Privacy policy url.
-            // privacyPolicyUrl: '<your-privacy-policy-url>'
-            };  
-     </script>
-
 </head>
 
 <body>
@@ -369,6 +332,8 @@
         <div class="col-md-2"></div>
     </div>
 
+    <!-- log work -->
+
     <div class="row" id="logWork">
         <div class="col">
             <div class="row logWorkForm">
@@ -386,30 +351,41 @@
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col menu">Id:</div>
-                                <div class="col menuData" id="logWorkId">B0001</div>
+                                <div class="col menuData" id="logWorkId"></div>
                             </div>
                         </div>
-                        <div class="col detailsTitle">Investigation on job</div>
+                        <div class="col detailsTitle" id="logWorkTitle"></div>
                     </div>
                     <div class="row part">
                         <div class="col menu">Extimated Time:</div>
-                        <div class="col menuData">10h</div>
+                        <div class="col menuData" id="logWorkET"></div>
+                    </div>
+                    <div class="row part">
+                        <div class="col menu">Total Logged Time:</div>
+                        <div class="col menuData" id="logWorkTotalTime"></div>
                     </div>
                     <div class="row part">
                         <div class="col menu">Remaining Time:</div>
-                        <div class="col menuData">10h</div>
+                        <div class="col menuData" id="logWorkRT">NAN</div>
                     </div>
                     <div class="row part">
                         <div class="col-md-4 menu">Log Hours:</div>
                         <div class="col menuLTime">
-                            <input type="number" name="logTime" id="logTime">
+                            <input type="number" name="logTime" id="logWorkTime">
                             Hours.
+                        </div>
+                    </div>
+                    <div class="row part">
+                        <div class="col-md-4 menu">% of Work Code (Out of 100%):</div>
+                        <div class="col menuLWorkDone">
+                            <input type="number" name="workDone" id="logWorkDone">
+                            %.
                         </div>
                     </div>
                     <div class="row part">
                         <div class="col-md-4 menu">Status:</div>
                         <div class="col menuStatus">
-                            <input type="text" name="status" id="status" list="statusTypes">
+                            <input type="text" name="status" id="logWorkStatus" list="statusTypes">
                             <datalist id="statusTypes">
                                 <option value="Icebox"></option>
                                 <option value="Ready to start"></option>
@@ -422,7 +398,7 @@
                     <div class="row part">
                         <div class="col-md-4 menu">Comment:</div>
                         <div class="col menuLTime">
-                            <input type="text" name="workComment" id="workComment">
+                            <input type="text" name="workComment" id="logWorkComment" size="100">
                         </div>
                     </div>
                     <div class="row part">
@@ -461,6 +437,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
+    <script src="script/workLoggingSystemFrames.js"></script>
     <script src="script/workLoggingSystem.js"></script>
     <script src="script/firebaseLogin.js"></script>
 </body>

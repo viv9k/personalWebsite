@@ -24,159 +24,24 @@ $("#bodyContent").ready(function() {
     $('.loadingPage').fadeOut(1000);
 });
 
-function setIntoTaskCard(id, data)
+function setIntoTaskCard(id)
 {
-    var tickets = document.getElementById("jobTickets").innerHTML;
-        
-    var title = data.Title;
-    var status = data.Status;
-    var priority = data.Priority;
-    var estimatedTime = data.ET;
-    var difficulty = data.Difficulty;
-    var des = data.Description;
-    var creator = data.Creator;
-    var category = data.Category;
-    var assignee = data.Assignee;
+    var title = datalist[id].title;
+    var status = datalist[id].status;
+    var priority = datalist[id].priority;
+    var estimatedTime = datalist[id].estimatedTime;
+    var difficulty = datalist[id].difficulty;
+    var des = datalist[id].des;
+    var creator = datalist[id].creator;
+    var category = datalist[id].category;
+    var assignee = datalist[id].assignee;
+    var logWorkTotalTime = datalist[id].logWorkTotalTime;
+    var workDone = datalist[id].workDone;
 
     console.log (title, status, priority, estimatedTime, difficulty, des, creator, category, assignee);
 
-    var frame = "<div class=\"row jobTicket\">";
-    frame += "<div class=\"col-md-4 jobTicketCard\" id=\"";
-    frame += id;
-    frame += "\" onclick=\"showDetails(\'";
-    frame += id;
-    frame += "\')\">";
-    frame += "<div class=\"row frameHead\">";
-    frame += "<div class=\"col-md-3\">";
-    frame += "<div class=\"row\">";
-    frame += "<div class=\"col menu\">Id:</div>";
-    frame += "<div class=\"col frameId\">"+id+"</div>";
-    frame += "</div>";         
-    frame += "</div>";
-    frame += "<div class=\"col frameTitle\">"+title+"</div>";
-    frame += "</div>";
-    frame += "<div class=\"row frameContent\">";
-    frame += "<div class=\"col-md-4\">";
-    frame += "<div class=\"row\">";      
-    frame += "<div class=\"col menu\">Priority:</div>";
-    frame += "<div class=\"col priority\">"+priority+"</div>";
-    frame += "</div>";
-    frame += "</div>";
-    frame += "<div class=\"col-md-4\">";
-    frame += "<div class=\"row\">";
-    frame += "<div class=\"col menu\">Assignee:</div>";
-    frame += "<div class=\"col assignee\">"+assignee+"</div>";
-    frame += "</div>";
-    frame += "</div>";
-    frame += "<div class=\"col-md-4\">";
-    frame += "<div class=\"row\">";
-    frame += "<div class=\"col menu\">Creator:</div>";
-    frame += "<div class=\"col creator\">"+creator+"</div>";
-    frame += "</div>";
-    frame += "</div>";
-    frame += "</div>";
-    frame += "</div>";
-
-    var idDetails = id+"Details";
-
-    var frameDetails = "<div class=\"col-md-8\">";
-    frameDetails += "<div class=\"row detailsRow\" id=\"";
-    frameDetails += idDetails;
-    frameDetails += "\">";
-    frameDetails += "<div class=\"col\">";
-    frameDetails += "<div class=\"row part\">";
-    frameDetails += "<div class=\"col-md-2\" id=\"logWorkButton\">";
-    frameDetails += "<button id=\"logWorkButton\" onclick=\"openLogWork()\">Log Work</button>";
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"col-md-2\">";
-    frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">Id:</div>";
-    frameDetails += "<div class=\"col menuData\">"+id+"</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"col detailsTitle\">"+title+"</div>";
-    frameDetails += "<div class=\"col-md-2 editButton\">";
-    frameDetails += "<button id=\"editDetailsButton\">Edit</button>";
-    frameDetails += "</div>"; 
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"row part\">";
-    frameDetails += "<div class=\"col-md-2 menu\">Description: </div>";
-    frameDetails += "<div class=\"col\">";
-    frameDetails += "<div class=\"row desBox\">";  
-    frameDetails += "<div class=\"col\">"+des+"</div>"; 
-    frameDetails += "</div>"; 
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"col-md-1\">";  
-    frameDetails += "</div>"; 
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"row part\">";  
-    frameDetails += "<div class=\"col\">"; 
-    frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">Priority:</div>";  
-    frameDetails += "<div class=\"col menuData\">"+priority+"</div>";
-    frameDetails += "</div>"; 
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"col\"></div>";  
-    frameDetails += "<div class=\"col\">";
-    frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">Difficulty:</div>";
-    frameDetails += "<div class=\"col menuData\">"+difficulty+"</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"col\"></div>"; 
-    frameDetails += "<div class=\"col\">";
-    frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">Assignee:</div>";
-    frameDetails += "<div class=\"col menuData\">"+assignee+"</div>";
-    frameDetails += "</div>";
-    frameDetails += "<br>";
-    frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">Creator:</div>";
-    frameDetails += "<div class=\"col menuData\">"+creator+"</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"row part\">";
-    frameDetails += "<div class=\"col-md-3\">";
-    frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">Estimated Time:</div>";
-    frameDetails += "<div class=\"col menuData\">"+estimatedTime+"h</div>";
-    frameDetails += "</div>";
-    frameDetails += "<br>";
-    frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">Logged Time:</div>";
-    frameDetails += "<div class=\"col menuData\">0h</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"col\"></div>";
-    frameDetails += "<div class=\"col-md-5\">";
-    frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">% of Work Code (Out of 100%):</div>";
-    frameDetails += "<div class=\"col menuData\">20%</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "<div class=\"col\"></div>";
-    frameDetails += "<div class=\"col-md-3\">";
-    frameDetails += "<div class=\"row\">";
-    frameDetails += "<div class=\"col menu\">Status:</div>";
-    frameDetails += "<div class=\"col menuData\">"+status+"</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-    frameDetails += "</div>";
-
-    frame += frameDetails;
-
-    if (tickets == "")
-        tickets = frame;
-    else
-        tickets += frame;
-
-    document.getElementById("jobTickets").innerHTML = tickets;
-
+    loadFrame(id, title, status, priority, estimatedTime, difficulty, des, creator, category, assignee, logWorkTotalTime, workDone);
+   
     return "ok";
 }
 
@@ -226,6 +91,18 @@ function openLogWork()
     $('#loginBody').hide(0);
     $("#head").hide(0);
     $("#logWork").fadeIn(100);
+
+    fillLogWork(selectedId);
+}
+
+function fillLogWork(id)
+{
+    document.getElementById("logWorkId").innerHTML = id;
+    document.getElementById("logWorkTitle").innerHTML = datalist[id].title;
+    document.getElementById("logWorkET").innerHTML = datalist[id].estimatedTime;
+    document.getElementById("logWorkTotalTime").innerHTML = datalist[id].logWorkTotalTime;
+    document.getElementById("logWorkStatus").value = datalist[id].status;
+    document.getElementById("logWorkDone").value = datalist[id].workDone;
 }
 
 $("#backToMainFromLogWork").click (function() {
@@ -260,4 +137,46 @@ $("#submitNewTask").click(function() {
 
 $("#successful").ready(function() {
     $("#successful").hide(0);
+});
+
+// Keep listening the changes
+
+var listnerTaskId = firebase.database().ref('Tasks/');
+listnerTaskId.on('child_changed', function(data) {
+    console.log(data.key);
+
+    $("#logWork").hide(0);
+    $("#head").show(200);
+    $("#successful").show(0);
+    $("#bodyContent").fadeIn(500);
+    $("#successful").fadeOut(2000);
+    getTasks();
+    
+});
+listnerTaskId.on('child_removed', function(data) {
+    console.log(data.key);
+    removeDiv(data.key);
+});
+
+function removeDiv(id)
+{
+    datalist.slice(id, 1);
+    $("#"+id).remove();
+
+    console.log(datalist);
+}
+
+$("#logWorkSubmit").click(function() {
+    var id = document.getElementById("logWorkId").innerHTML;
+    var logWorkTotalTime = document.getElementById("logWorkTotalTime").innerHTML;
+    var logWorkTime = document.getElementById("logWorkTime").value;
+    var status = document.getElementById("logWorkStatus").value;
+    var workDone = document.getElementById("logWorkDone").value;
+
+    logWorkTotalTime = parseInt(logWorkTotalTime) + parseInt(logWorkTime);
+
+    var result = updateFromLogWorkData(id, logWorkTotalTime, status, workDone);
+
+    console.log(result);
+
 });

@@ -1,3 +1,4 @@
+/* For Testing 
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyA1unUPPxmMSwJGQ1khDiDLtxAXYElqm54",
@@ -12,16 +13,70 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+*/
+
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyAoeT6sC6LyFcoNLXVc6SG6e3aqBRhsqQg",
+  authDomain: "workloggingsystem.firebaseapp.com",
+  databaseURL: "https://workloggingsystem.firebaseio.com",
+  projectId: "workloggingsystem",
+  storageBucket: "workloggingsystem.appspot.com",
+  messagingSenderId: "744010877071",
+  appId: "1:744010877071:web:6c991081d7b21818b888fa",
+  measurementId: "G-3CWF3NRSW6"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 // Get a reference to the database service
 var database = firebase.database();
+
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+var uiConfig = {
+callbacks: {
+signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+// User successfully signed in.
+// Return type determines whether we continue the redirect automatically
+// or whether we leave that to developer to handle.
+return true;
+},
+uiShown: function() {
+// The widget is rendered.
+// Hide the loader.
+document.getElementById('loader').style.display = 'none';
+}
+},
+// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+signInFlow: 'popup',
+signInSuccessUrl: 'workLoggingSystem.html',
+signInOptions: [
+// Leave the lines as is for the providers you want to offer your users.
+{
+provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+scopes: [
+        'https://www.googleapis.com/auth/contacts.readonly'
+    ],
+},
+firebase.auth.EmailAuthProvider.PROVIDER_ID
+]
+// Terms of service url.
+// tosUrl: '<your-tos-url>',
+// // Privacy policy url.
+// privacyPolicyUrl: '<your-privacy-policy-url>'
+};  
 
 function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category) {
 
   var taskIdNumber = getIdNumber();
   var taskId = category[0]+taskIdNumber;
+  var loggedWorkTotalTime = 0;
+  var workDone = 0;
 
-  firebase.database().ref('Tasks/' + taskId).set({
+  database.ref('Tasks/' + taskId).set({
     Title: title,
     Description: des,
     Priority: priority,
@@ -30,7 +85,9 @@ function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedT
     Assignee: assignee,
     ET: estimatedTime,
     Status: status,
-    Category: category
+    Category: category,
+    LogWorkTotalTime: loggedWorkTotalTime,
+    WorkDone: workDone
   });
 
   newTaskCreatedSuccessfully();
@@ -51,8 +108,8 @@ function newTaskCreatedSuccessfully()
 {
   $("#createNewTask").fadeOut(100);
   $("#successful").fadeIn(0);
-  $("#successful").fadeOut(5000);
-  $("#bodyContent").fadeIn(5000);
+  $("#successful").fadeOut(2000);
+  $("#bodyContent").fadeIn(2000);
 }
 
 function getTasks()
@@ -70,10 +127,29 @@ function getTasksData()
 
   document.getElementById("jobTickets").innerHTML = "";
 
-  var taskData = firebase.database().ref('Tasks/');
+  var taskData = database.ref('Tasks/');
   taskData.on('child_added', function(snapshot) {
-    setIntoTaskCard(snapshot.key, snapshot.val());
+    createInstance(snapshot.key, snapshot.val());
+    setIntoTaskCard(snapshot.key);
   });
 
   return result;
+}
+
+var datalist = [];
+
+function createInstance(id, data)
+{
+  datalist[id] = new Data(data);
+}
+
+function updateFromLogWorkData(id, logWorkTotalTime, status, workDone)
+{
+  var updates = {};
+  updates['/Tasks/' + id + '/LogWorkTotalTime'] = logWorkTotalTime;
+  updates['/Tasks/' + id + '/Status'] = status;
+  updates['/Tasks/' + id + '/WorkDone'] = workDone;
+
+  return database.ref().update(updates);
+
 }
