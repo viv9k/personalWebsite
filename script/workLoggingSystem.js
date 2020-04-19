@@ -158,6 +158,24 @@ listnerTaskId.on('child_removed', function(data) {
     removeDiv(data.key);
 });
 
+// Insert slogan
+// firebase.database().ref('Slogan/' + 1).set({
+//     Content: "The biggest is not taking risk."  
+// });
+
+//fetch slogan
+
+var sloganId = Math.floor(Math.random() * 2);
+var sloganContent = database.ref('Slogan/'+sloganId);
+sloganContent.on('child_added', function(snapshot) {
+    setSlogan(snapshot.val());
+});
+
+function setSlogan(data)
+{
+    document.getElementById("sloganContent").innerHTML = data;
+}
+
 function removeDiv(id)
 {
     datalist.slice(id, 1);
