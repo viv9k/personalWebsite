@@ -21,7 +21,7 @@ $("#bodyContent").ready(function() {
     var result = getTasks();
 
     console.log(result);
-    $('.loadingPage').fadeOut(1000);
+    $('.loadingPage').delay(2000).fadeOut(0);
 });
 
 function setIntoTaskCard(id)
