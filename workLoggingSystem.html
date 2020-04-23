@@ -34,16 +34,22 @@
     <!-- Header Section -->
     
     <div class="row" id="head">
-        <div class="col" id="createNewTaskButton">
+        <div class="col-md-2"></div>
+        <div class="col-md-2" id="createNewTaskButton">
             <button id="createNewTaskButton">Create New Task</button>
         </div>
-        <div class="col-md-2" id="userName">
+        <div class="col-md-2">
+            <button id="allTaskButton">All Task</button>
+        </div>
+        <div class="col"></div>
+        <div class="col" id="userName">
             Guest
         </div>
         <div class="col" id="login">
             <button id="loginButton">Login</button>
             <button id="signOutButton">Sign Out</button>
         </div>
+        <div class="col-md-3"></div>
     </div>
 
     <div class="row" id="slogan">
@@ -418,6 +424,7 @@
         </div>
     </div>
 
+    <!-- On task Successfull -->
     <div class="row" id="successful">
         <div class="col">
             <div class="row" id="completedSuccussfully">
@@ -431,6 +438,29 @@
             </div>
         </div>
     </div>
+
+    <!-- All Task -->
+    <div class="row" id="allTaskPage">
+        <div class="col">
+            <div class="row" id="allTaskMenu">
+                <div class="col"></div>
+                <div class="col-md-3">
+                    <h1><-- Completed--></h1>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row" id="selectedContent">
+                <div class="col">
+                    <div class="row" id="taskList">
+                        <div class="col" id="taskTickets">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <link rel="stylesheet" href="style/fonts.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

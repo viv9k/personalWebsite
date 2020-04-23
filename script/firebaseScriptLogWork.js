@@ -126,6 +126,7 @@ function getTasksData()
   var result = "ok";
 
   document.getElementById("jobTickets").innerHTML = "";
+  document.getElementById("taskTickets").innerHTML = "";
 
   var taskData = database.ref('Tasks/');
   taskData.on('child_added', function(snapshot) {

@@ -2,6 +2,7 @@ function loadFrame(id, title, status, priority, estimatedTime, difficulty, des, 
 {
     
 var tickets = document.getElementById("jobTickets").innerHTML;
+var completedTickets = document.getElementById("taskTickets").innerHTML;
 
 var frame = "<div class=\"row jobTicket\">";
 frame += "<div class=\"col-md-4 jobTicketCard\" id=\"";
@@ -133,11 +134,22 @@ frameDetails += "</div>";
 
 frame += frameDetails;
 
-if (tickets == "")
-    tickets = frame;
+if(status == "Completed")
+{
+    if (completedTickets == "")
+        completedTickets = frame;
+    else
+        completedTickets += frame;
+}
 else
-    tickets += frame;
+{
+    if (tickets == "")
+        tickets = frame;
+    else
+        tickets += frame;
+}
 
 document.getElementById("jobTickets").innerHTML = tickets;
+document.getElementById("taskTickets").innerHTML = completedTickets;
 
 }

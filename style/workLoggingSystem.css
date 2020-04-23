@@ -8,14 +8,8 @@ body {
     padding: 1% 5% 1% 5%;
 }
 
-#createNewTaskButton {
-    text-align: end;
-}
-
-
 #userName {
     font-size: 20px;
-    text-align: end;
     font-family: 'Bree Serif', serif;
 }
 
@@ -24,7 +18,7 @@ button {
     border: 1px solid;
     border-radius: 5px;
     color: white;
-    padding: 1% 4% 1% 4%;
+    padding: 5% 20% 5% 20%;
 }
 
 button:hover {

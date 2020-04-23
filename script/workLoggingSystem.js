@@ -70,6 +70,10 @@ $("#createNewTask").ready(function() {
     $("#createNewTask").hide(0);
 });
 
+$("#allTaskPage").ready(function () {
+    $("#allTaskPage").hide(0);
+});
+
 $("#createNewTaskButton").click(function () {
     $("#bodyContent").hide(0);
     $('#loginBody').hide(0);
@@ -197,4 +201,11 @@ $("#logWorkSubmit").click(function() {
 
     console.log(result);
 
+});
+
+$("#allTaskButton").click(function() {
+    $("#bodyContent").hide(0);
+    $('#loginBody').hide(0);
+    $("#createNewTask").hide(0);
+    $("#allTaskPage").fadeIn(100);
 });
