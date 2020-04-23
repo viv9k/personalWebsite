@@ -163,13 +163,13 @@ listnerTaskId.on('child_removed', function(data) {
 });
 
 // Insert slogan
-// firebase.database().ref('Slogan/' + 1).set({
-//     Content: "The biggest is not taking risk."  
+// firebase.database().ref('Slogan/' + 2).set({
+//     Content: "Have the courage to follow your heart and intuition. They somehow already know what you truly want to become."  
 // });
 
 //fetch slogan
 
-var sloganId = Math.floor(Math.random() * 2);
+var sloganId = Math.floor(Math.random() * 3);
 var sloganContent = database.ref('Slogan/'+sloganId);
 sloganContent.on('child_added', function(snapshot) {
     setSlogan(snapshot.val());
