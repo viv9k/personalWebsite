@@ -15,6 +15,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 */
 
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyAoeT6sC6LyFcoNLXVc6SG6e3aqBRhsqQg",
@@ -26,6 +27,8 @@ var firebaseConfig = {
   appId: "1:744010877071:web:6c991081d7b21818b888fa",
   measurementId: "G-3CWF3NRSW6"
 };
+
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
@@ -69,7 +72,7 @@ firebase.auth.EmailAuthProvider.PROVIDER_ID
 // privacyPolicyUrl: '<your-privacy-policy-url>'
 };  
 
-function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,loggingDate) {
+function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,creationDate) {
 
   var taskIdNumber = getIdNumber();
   var taskId = category[0]+taskIdNumber;
@@ -87,7 +90,7 @@ function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedT
     Status: status,
     Category: category,
     LogWorkTotalTime: loggedWorkTotalTime,
-    Date: loggingDate,
+    Date: creationDate,
     WorkDone: workDone
   });
 
