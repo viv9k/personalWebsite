@@ -78,6 +78,8 @@ $("#createNewTaskButton").click(function () {
     $("#bodyContent").hide(0);
     $('#loginBody').hide(0);
     $("#createNewTask").fadeIn(100);
+    var d = new Date();
+    document.getElementById("show_date").innerHTML = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
 });
 
 $("#backToMainFromCreateNewTask").click(function() {
@@ -125,6 +127,8 @@ $("#submitNewTask").click(function() {
     var estimatedTime = $("#estimatedTimeCreateNewTask").val();
     var status = $("#statusCreateNewTask").val();
     var category = $("#categoryCreateNewTask").val();
+    var d = new Date();
+    var dates = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
 
     console.log(title);
     console.log(des);
@@ -135,8 +139,9 @@ $("#submitNewTask").click(function() {
     console.log(estimatedTime);
     console.log(status);
     console.log(category);
+    console.log(dates);
 
-    createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category);
+    createNewTask(dates,title,des,priority,difficulty,creator,assignee,estimatedTime,status,category);
 });
 
 $("#successful").ready(function() {

@@ -69,7 +69,7 @@ firebase.auth.EmailAuthProvider.PROVIDER_ID
 // privacyPolicyUrl: '<your-privacy-policy-url>'
 };  
 
-function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category) {
+function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,dates) {
 
   var taskIdNumber = getIdNumber();
   var taskId = category[0]+taskIdNumber;
@@ -87,6 +87,7 @@ function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedT
     Status: status,
     Category: category,
     LogWorkTotalTime: loggedWorkTotalTime,
+    Date: dates,
     WorkDone: workDone
   });
 
