@@ -78,8 +78,8 @@ $("#createNewTaskButton").click(function () {
     $("#bodyContent").hide(0);
     $('#loginBody').hide(0);
     $("#createNewTask").fadeIn(100);
-    var d = new Date();
-    document.getElementById("show_date").innerHTML = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+    var date = new Date();
+    document.getElementById("showDate").innerHTML = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 });
 
 $("#backToMainFromCreateNewTask").click(function() {
@@ -127,8 +127,8 @@ $("#submitNewTask").click(function() {
     var estimatedTime = $("#estimatedTimeCreateNewTask").val();
     var status = $("#statusCreateNewTask").val();
     var category = $("#categoryCreateNewTask").val();
-    var d = new Date();
-    var dates = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+    var date = new Date();
+    var loggingDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 
     console.log(title);
     console.log(des);
@@ -139,9 +139,9 @@ $("#submitNewTask").click(function() {
     console.log(estimatedTime);
     console.log(status);
     console.log(category);
-    console.log(dates);
+    console.log(loggingDate);
 
-    createNewTask(dates,title,des,priority,difficulty,creator,assignee,estimatedTime,status,category);
+    createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,loggingDate);
 });
 
 $("#successful").ready(function() {
