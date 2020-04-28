@@ -68,6 +68,8 @@ function showDetails(id)
 
 $("#createNewTask").ready(function() {
     $("#createNewTask").hide(0);
+    var date = new Date();
+    document.getElementById("creationDateCreateNewTask").innerHTML = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 });
 
 $("#allTaskPage").ready(function () {
@@ -78,6 +80,7 @@ $("#createNewTaskButton").click(function () {
     $("#bodyContent").hide(0);
     $('#loginBody').hide(0);
     $("#createNewTask").fadeIn(100);
+    
 });
 
 $("#backToMainFromCreateNewTask").click(function() {
@@ -125,6 +128,8 @@ $("#submitNewTask").click(function() {
     var estimatedTime = $("#estimatedTimeCreateNewTask").val();
     var status = $("#statusCreateNewTask").val();
     var category = $("#categoryCreateNewTask").val();
+    var creationDate = document.getElementById("creationDateCreateNewTask").innerHTML;
+
 
     console.log(title);
     console.log(des);
@@ -135,8 +140,9 @@ $("#submitNewTask").click(function() {
     console.log(estimatedTime);
     console.log(status);
     console.log(category);
+    console.log(creationDate);
 
-    createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category);
+    createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,creationDate);
 });
 
 $("#successful").ready(function() {
