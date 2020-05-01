@@ -209,3 +209,7 @@ button:hover {
     padding-top: 10%;
     text-align: center;
 }
+
+#errorMessage {
+    color: red;
+}

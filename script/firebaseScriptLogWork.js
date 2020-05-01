@@ -16,7 +16,7 @@ firebase.analytics();
 */
 
 
-// Your web app's Firebase configuration
+/*// Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyAoeT6sC6LyFcoNLXVc6SG6e3aqBRhsqQg",
   authDomain: "workloggingsystem.firebaseapp.com",
@@ -27,8 +27,22 @@ var firebaseConfig = {
   appId: "1:744010877071:web:6c991081d7b21818b888fa",
   measurementId: "G-3CWF3NRSW6"
 };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();*/
 
-
+// Bighnesh Trial firebase
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyAaMjQnm3NnUmHHW2Smt6wJyRV7a0FIeFo",
+  authDomain: "wls1-b942d.firebaseapp.com",
+  databaseURL: "https://wls1-b942d.firebaseio.com",
+  projectId: "wls1-b942d",
+  storageBucket: "wls1-b942d.appspot.com",
+  messagingSenderId: "1056324548947",
+  appId: "1:1056324548947:web:642a1d3c3fab60460c49a6",
+  measurementId: "G-KWPDV4PSDG"
+};
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();

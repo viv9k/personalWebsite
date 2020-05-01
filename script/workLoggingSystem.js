@@ -80,6 +80,7 @@ $("#createNewTaskButton").click(function () {
     $("#bodyContent").hide(0);
     $('#loginBody').hide(0);
     $("#createNewTask").fadeIn(100);
+    $("#errorMessage").hide();
     
 });
 
@@ -142,8 +143,58 @@ $("#submitNewTask").click(function() {
     console.log(category);
     console.log(creationDate);
 
-    createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,creationDate);
+    //createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,creationDate);
+
+    if(checkValidation(priority,difficulty,status,category,estimatedTime))
+        {
+            console.log("working");
+            createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,creationDate);
+        }
+    else
+        {
+            console.log("wrong values");
+            $("#errorMessage").show();
+        }
 });
+
+function checkValidation(priority,difficulty,status,category,estimatedTime) {
+    var errorflag = 0;
+    $("#priorityCreateNewTask").css("color","black");
+    $("#difficultyCreateNewTask").css("color","black");
+    $("#estimatedTimeCreateNewTask").css("color","black");
+    $("#statusCreateNewTask").css("color","black");
+    $("#categoryCreateNewTask").css("color","black");
+    if((priority != "High" && priority != "Medium" && priority != "Low") || priority =="")
+        {   
+            $("#priorityCreateNewTask").css("color","red");
+            errorflag=1;
+        }
+    if((difficulty != "High" && difficulty != "Medium" && difficulty != "Low") || difficulty == "")
+        {   
+            $("#difficultyCreateNewTask").css("color","red");
+            errorflag=1;
+        }
+    if((status != "Icebox"  && status != "Ready to start" && status != "Under Progress" && status != "Blocked" && status != "Completed" ) || status == "")
+        {   
+            $("#statusCreateNewTask").css("color","red");
+            errorflag=1;
+        }
+    if((category != "Business" && category != "Development" && category != "Marketting" ) || category == "")
+        {   
+            $("#categoryCreateNewTask").css("color","red");
+            errorflag=1;
+        }
+    if((estimatedTime < 0) || (estimatedTime == ""))
+        {
+            $("#estimatedTimeCreateNewTask").css("color","red");
+            errorflag=1;
+        }
+    if(errorflag)
+        return false;
+    else
+        return true;
+        
+}
 
 $("#successful").ready(function() {
     $("#successful").hide(0);
