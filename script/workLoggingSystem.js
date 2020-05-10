@@ -37,11 +37,10 @@ function setIntoTaskCard(id)
     var assignee = datalist[id].assignee;
     var logWorkTotalTime = datalist[id].logWorkTotalTime;
     var workDone = datalist[id].workDone;
-    var creationDate = datalist[id].creationDate;
 
-    console.log (title, status, priority, estimatedTime, difficulty, des, creator, category, assignee, creationDate,id);
+    console.log (title, status, priority, estimatedTime, difficulty, des, creator, category, assignee);
 
-    loadFrame(id, title, status, priority, estimatedTime, difficulty, des, creator, category, assignee, logWorkTotalTime, workDone, creationDate);
+    loadFrame(id, title, status, priority, estimatedTime, difficulty, des, creator, category, assignee, logWorkTotalTime, workDone);
    
     return "ok";
 }
