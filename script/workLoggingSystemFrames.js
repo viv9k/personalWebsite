@@ -1,4 +1,4 @@
-function loadFrame(id, title, status, priority, estimatedTime, difficulty, des, creator, category, assignee, logWorkTotalTime, workDone,creationDate)
+function loadFrame(id, title, status, priority, estimatedTime, difficulty, des, creator, category, assignee, logWorkTotalTime, workDone)
 {
     
 var tickets = document.getElementById("jobTickets").innerHTML;
@@ -117,11 +117,6 @@ frameDetails += "<div class=\"col-md-5\">";
 frameDetails += "<div class=\"row\">";
 frameDetails += "<div class=\"col menu\">% of Work Code (Out of 100%):</div>";
 frameDetails += "<div class=\"col menuData\">"+workDone+"%</div>";
-frameDetails += "</div>";
-frameDetails += "<br>";
-frameDetails += "<div class=\"row\">";
-frameDetails += "<div class=\"col menu\">Creation Date:</div>";
-frameDetails += "<div class=\"col menuData\">"+creationDate+"</div>";
 frameDetails += "</div>";
 frameDetails += "</div>";
 frameDetails += "<div class=\"col\"></div>";
