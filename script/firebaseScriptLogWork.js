@@ -16,7 +16,7 @@ firebase.analytics();
 */
 
 
-// Your web app's Firebase configuration
+/*// Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAoeT6sC6LyFcoNLXVc6SG6e3aqBRhsqQg",
     authDomain: "workloggingsystem.firebaseapp.com",
@@ -30,22 +30,22 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-
+*/
 // Bighnesh Trial firebase
 // Your web app's Firebase configuration
-// var firebaseConfig = {
-//   apiKey: "AIzaSyAaMjQnm3NnUmHHW2Smt6wJyRV7a0FIeFo",
-//   authDomain: "wls1-b942d.firebaseapp.com",
-//   databaseURL: "https://wls1-b942d.firebaseio.com",
-//   projectId: "wls1-b942d",
-//   storageBucket: "wls1-b942d.appspot.com",
-//   messagingSenderId: "1056324548947",
-//   appId: "1:1056324548947:web:642a1d3c3fab60460c49a6",
-//   measurementId: "G-KWPDV4PSDG"
-// };
-// Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+ var firebaseConfig = {
+   apiKey: "AIzaSyAaMjQnm3NnUmHHW2Smt6wJyRV7a0FIeFo",
+   authDomain: "wls1-b942d.firebaseapp.com",
+   databaseURL: "https://wls1-b942d.firebaseio.com",
+   projectId: "wls1-b942d",
+   storageBucket: "wls1-b942d.appspot.com",
+   messagingSenderId: "1056324548947",
+   appId: "1:1056324548947:web:642a1d3c3fab60460c49a6",
+   measurementId: "G-KWPDV4PSDG"
+ };
+ //Initialize Firebase
+ firebase.initializeApp(firebaseConfig);
+ firebase.analytics();
 
 // Get a reference to the database service
 var database = firebase.database();
@@ -54,6 +54,61 @@ var database = firebase.database();
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
+callbacks: {
+signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+// User successfully signed in.
+// Return type determines whether we continue the redirect automatically
+// or whether we leave that to developer to handle.
+return true;
+},
+uiShown: function() {
+// The widget is rendered.
+// Hide the loader.
+document.getElementById('loader').style.display = 'none';
+}
+},
+// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+signInFlow: 'popup',
+signInSuccessUrl: 'workLoggingSystem.html',
+signInOptions: [
+// Leave the lines as is for the providers you want to offer your users.
+{
+provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+scopes: [
+        'https://www.googleapis.com/auth/contacts.readonly'
+    ],
+},
+firebase.auth.EmailAuthProvider.PROVIDER_ID
+]
+// Terms of service url.
+// tosUrl: '<your-tos-url>',
+// // Privacy policy url.
+// privacyPolicyUrl: '<your-privacy-policy-url>'
+};  
+
+function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,creationDate) {
+
+  var taskIdNumber = getIdNumber();
+  var taskId = category[0]+taskIdNumber;
+  var loggedWorkTotalTime = 0;
+  var workDone = 0;
+
+  database.ref('Tasks/' + taskId).set({
+    Title: title,
+    Description: des,
+    Priority: priority,
+    Difficulty: difficulty,
+    Creator: creator,
+    Assignee: assignee,
+    ET: estimatedTime,
+    Status: status,
+    Category: category,
+    LogWorkTotalTime: loggedWorkTotalTime,
+    CreationDate: creationDate,
+    WorkDone: workDone
+  });
+
+  newTaskCreatedSuccessfully();
     callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
             // User successfully signed in.
@@ -109,6 +164,7 @@ function createNewTask(title, des, priority, difficulty, creator, assignee, esti
     });
 
     newTaskCreatedSuccessfully();
+
 }
 
 function getIdNumber() {
