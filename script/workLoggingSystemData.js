@@ -11,6 +11,6 @@ class Data {
         this.assignee = data.Assignee;
         this.logWorkTotalTime = data.LogWorkTotalTime;
         this.workDone = data.WorkDone;
-        this.creationDate = data.Date;
+        this.creationDate = data.CreationDate;
     }
 }

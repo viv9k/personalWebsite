@@ -104,7 +104,7 @@ function createNewTask(title,des,priority,difficulty,creator,assignee,estimatedT
     Status: status,
     Category: category,
     LogWorkTotalTime: loggedWorkTotalTime,
-    Date: creationDate,
+    CreationDate: creationDate,
     WorkDone: workDone
   });
 
