@@ -70,42 +70,58 @@ button:hover {
 }
 
 .jobTicketCard {
-    background-color: #e65100;
+    background-color: #2196f3 ;
     padding-top: 1%;
-    padding-bottom: 2%;
+    padding-bottom: 1%;
     border-radius: 5px;
     cursor: pointer;
     color: white;
 }
 
-.jobTicketCard:hover {
-    background-color: #69f0ae;
+/*.jobTicketCard:hover {
+    background-color: #00e5ff;
 }
+*/
 
 .frameTitle {
-    background-color: #ffc107;
+   
     font-weight: 300;
 }
 
-.frameContent {
-    padding-top: 2%;
-}
-
-.menu {
-    background-color: #ffc107;
+.menuTicket {
+    background-color: #263238;
+    color: white;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
     cursor: pointer;
     font-family: 'Bree Serif', serif;
-    font-size: 18px;
+    font-size: 16px;
+    margin-left: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 2%;
+    width: 40%;
+  
+}
+
+.menu {
+    background-color: #455a64;
+    color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-weight: 300;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Bree Serif', serif;
+    font-size: 16px;
     padding-top: 1%;
     padding-bottom: 1%;
 }
 
 .menuData {
-    background-color: #c6ff00;
+    background-color: #baffff;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
@@ -113,12 +129,24 @@ button:hover {
     font-size: 18px;
     padding-top: 1%;
     padding-bottom: 1%;
+    width: 50%;
+    
+}
+.detail{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 2%;
+    margin-left: 2%;
 }
 
 .detailsTitle {
-    color: #01579b;
+    color: #002171;
+    font-weight: 200;
     font-size: 24px;
+    margin-bottom: 2%;
+    margin-left: 1%;
 }
+
 
 #editDetailsButton {
     padding: 2% 20% 2% 20%;
@@ -130,6 +158,13 @@ button:hover {
 
 .part {
     padding: 1% 1% 1% 1%;
+}
+.logBtn{
+    width: 30%;
+}
+.editButton{
+    width: 50%;
+    padding-bottom: 2%;
 }
 
 .desBox {
@@ -213,3 +248,5 @@ button:hover {
 #errorMessage {
     color: red;
 }
+
+
