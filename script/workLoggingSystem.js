@@ -112,7 +112,7 @@ function fillLogWork(id)
     document.getElementById("logWorkTotalTime").innerHTML = datalist[id].logWorkTotalTime;
     document.getElementById("logWorkStatus").value = datalist[id].status;
     document.getElementById("logWorkDone").value = datalist[id].workDone;
-    document.getElementById("logWorkRT").value = datalist[id].estimatedTime - datalist[id].logWorkTotalTime;
+    document.getElementById("logWorkRT").innerHTML = datalist[id].estimatedTime - datalist[id].logWorkTotalTime;
 }
 
 $("#backToMainFromLogWork").click (function() {
