@@ -45,7 +45,7 @@ frameDetails += idDetails;
 frameDetails += "\">";
 frameDetails += "<div class=\"col\">";
 frameDetails += "<div class=\"row part\">";
-frameDetails += "<div class=\"col-md-2 logBtn\" id=\"logWorkButton\">";
+frameDetails += "<div class=\"col-md-2 logWorkBtn\" id=\"logWorkButton\">";
 frameDetails += "<button id=\"logWorkButton\" onclick=\"openLogWork()\">Log Work</button>";
 frameDetails += "</div>";
 frameDetails += "<div class=\"col-md-2 editButton\">";
