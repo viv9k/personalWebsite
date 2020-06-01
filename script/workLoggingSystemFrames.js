@@ -127,7 +127,6 @@ frameDetails += "<div class=\"col menu\">Status:</div>";
 frameDetails += "<div class=\"col menuData\">"+status+"</div>";
 frameDetails += "</div>";
 frameDetails += "<br>";
-frameDetails += "<br>";
 frameDetails += '<div class="row">';
 frameDetails += '<div class="col menu">category:</div>';
 frameDetails += '<div class="col menuData">' + category + "</div>";
