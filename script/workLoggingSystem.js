@@ -24,8 +24,7 @@ $("#bodyContent").ready(function() {
     $('.loadingPage').delay(2000).fadeOut(0);
 });
 
-function setIntoTaskCard(id)
-{
+function setIntoTaskCard(id) {
     var title = datalist[id].title;
     var status = datalist[id].status;
     var priority = datalist[id].priority;
@@ -39,50 +38,49 @@ function setIntoTaskCard(id)
     var workDone = datalist[id].workDone;
     var creationDate = datalist[id].creationDate;
 
-    console.log (title, status, priority, estimatedTime, difficulty, des, creator, category, assignee, creationDate,id);
+    console.log(title, status, priority, estimatedTime, difficulty, des, creator, category, assignee, creationDate, id);
 
     loadFrame(id, title, status, priority, estimatedTime, difficulty, des, creator, category, assignee, logWorkTotalTime, workDone, creationDate);
-   
+
     return "ok";
 }
 
 var showingDetailsFor = "";
 var selectedId = "";
 
-function showDetails(id)
-{
+function showDetails(id) {
     selectedId = id;
     id += "Details";
 
-    if(showingDetailsFor == "") {
+    if (showingDetailsFor == "") {
         showingDetailsFor = id;
-        $("#"+id).slideDown();
-    } else if(showingDetailsFor == id) {
+        $("#" + id).slideDown();
+    } else if (showingDetailsFor == id) {
         showingDetailsFor = "";
-        $("#"+id).slideUp();
+        $("#" + id).slideUp();
     } else {
-        $("#"+showingDetailsFor).slideUp();
+        $("#" + showingDetailsFor).slideUp();
         showingDetailsFor = id;
-        $("#"+id).slideDown();
+        $("#" + id).slideDown();
     }
 }
 
 $("#createNewTask").ready(function() {
     $("#createNewTask").hide(0);
     var date = new Date();
-    document.getElementById("creationDateCreateNewTask").innerHTML = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+    document.getElementById("creationDateCreateNewTask").innerHTML = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 });
 
-$("#allTaskPage").ready(function () {
+$("#allTaskPage").ready(function() {
     $("#allTaskPage").hide(0);
 });
 
-$("#createNewTaskButton").click(function () {
+$("#createNewTaskButton").click(function() {
     $("#bodyContent").hide(0);
     $('#loginBody').hide(0);
     $("#createNewTask").fadeIn(100);
     $("#errorMessage").hide();
-    
+
 });
 
 $("#backToMainFromCreateNewTask").click(function() {
@@ -94,8 +92,7 @@ $("#logWork").ready(function() {
     $("#logWork").hide(0);
 });
 
-function openLogWork()
-{
+function openLogWork() {
     $("#bodyContent").hide(0);
     $('#loginBody').hide(0);
     $("#head").hide(0);
@@ -104,6 +101,7 @@ function openLogWork()
     fillLogWork(selectedId);
 }
 
+
 function fillLogWork(id)
 {
     var today = new Date();
@@ -111,6 +109,7 @@ function fillLogWork(id)
     var time = today.getHours() + ":" + today.getMinutes();
     var commentDateTime = date + "|" + time +  "|" ;
 
+  
     document.getElementById("logWorkId").innerHTML = id;
     document.getElementById("logWorkTitle").innerHTML = datalist[id].title;
     document.getElementById("logWorkET").innerHTML = datalist[id].estimatedTime;
@@ -121,7 +120,7 @@ function fillLogWork(id)
     document.getElementById("logWorkComment").value = commentDateTime + datalist[id].assignee + " : ";
 }
 
-$("#backToMainFromLogWork").click (function() {
+$("#backToMainFromLogWork").click(function() {
     $("#logWork").hide(0);
     $("#head").show(200);
     $("#bodyContent").show(200);
@@ -153,55 +152,47 @@ $("#submitNewTask").click(function() {
 
     //createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,creationDate);
 
-    if(checkValidation(priority,difficulty,status,category,estimatedTime))
-        {
-            console.log("working");
-            createNewTask(title,des,priority,difficulty,creator,assignee,estimatedTime,status,category,creationDate);
-        }
-    else
-        {
-            console.log("wrong values");
-            $("#errorMessage").show();
-        }
+    if (checkValidation(priority, difficulty, status, category, estimatedTime)) {
+        console.log("working");
+        createNewTask(title, des, priority, difficulty, creator, assignee, estimatedTime, status, category, creationDate);
+    } else {
+        console.log("wrong values");
+        $("#errorMessage").show();
+    }
 });
 
-function checkValidation(priority,difficulty,status,category,estimatedTime) {
+function checkValidation(priority, difficulty, status, category, estimatedTime) {
     var errorflag = 0;
-    $("#priorityCreateNewTask").css("color","black");
-    $("#difficultyCreateNewTask").css("color","black");
-    $("#estimatedTimeCreateNewTask").css("color","black");
-    $("#statusCreateNewTask").css("color","black");
-    $("#categoryCreateNewTask").css("color","black");
-    if((priority != "High" && priority != "Medium" && priority != "Low") || priority =="")
-        {   
-            $("#priorityCreateNewTask").css("color","red");
-            errorflag=1;
-        }
-    if((difficulty != "High" && difficulty != "Medium" && difficulty != "Low") || difficulty == "")
-        {   
-            $("#difficultyCreateNewTask").css("color","red");
-            errorflag=1;
-        }
-    if((status != "Icebox"  && status != "Ready to start" && status != "Under Progress" && status != "Blocked" && status != "Completed" ) || status == "")
-        {   
-            $("#statusCreateNewTask").css("color","red");
-            errorflag=1;
-        }
-    if((category != "Business" && category != "Development" && category != "Marketting" ) || category == "")
-        {   
-            $("#categoryCreateNewTask").css("color","red");
-            errorflag=1;
-        }
-    if((estimatedTime < 0) || (estimatedTime == ""))
-        {
-            $("#estimatedTimeCreateNewTask").css("color","red");
-            errorflag=1;
-        }
-    if(errorflag)
+    $("#priorityCreateNewTask").css("color", "black");
+    $("#difficultyCreateNewTask").css("color", "black");
+    $("#estimatedTimeCreateNewTask").css("color", "black");
+    $("#statusCreateNewTask").css("color", "black");
+    $("#categoryCreateNewTask").css("color", "black");
+    if ((priority != "High" && priority != "Medium" && priority != "Low") || priority == "") {
+        $("#priorityCreateNewTask").css("color", "red");
+        errorflag = 1;
+    }
+    if ((difficulty != "High" && difficulty != "Medium" && difficulty != "Low") || difficulty == "") {
+        $("#difficultyCreateNewTask").css("color", "red");
+        errorflag = 1;
+    }
+    if ((status != "Icebox" && status != "Ready to start" && status != "Under Progress" && status != "Blocked" && status != "Completed") || status == "") {
+        $("#statusCreateNewTask").css("color", "red");
+        errorflag = 1;
+    }
+    if ((category != "Business" && category != "Development" && category != "Marketting") || category == "") {
+        $("#categoryCreateNewTask").css("color", "red");
+        errorflag = 1;
+    }
+    if ((estimatedTime < 0) || (estimatedTime == "")) {
+        $("#estimatedTimeCreateNewTask").css("color", "red");
+        errorflag = 1;
+    }
+    if (errorflag)
         return false;
     else
         return true;
-        
+
 }
 
 $("#successful").ready(function() {
@@ -220,7 +211,7 @@ listnerTaskId.on('child_changed', function(data) {
     $("#bodyContent").fadeIn(500);
     $("#successful").fadeOut(2000);
     getTasks();
-    
+
 });
 listnerTaskId.on('child_removed', function(data) {
     console.log(data.key);
@@ -228,27 +219,25 @@ listnerTaskId.on('child_removed', function(data) {
 });
 
 // Insert slogan
-// firebase.database().ref('Slogan/' + 2).set({
-//     Content: "Have the courage to follow your heart and intuition. They somehow already know what you truly want to become."  
+// firebase.database().ref('Slogan/' + 3).set({
+//     Content: "Feedback is the breakfast of champions."
 // });
 
 //fetch slogan
 
-var sloganId = Math.floor(Math.random() * 3);
-var sloganContent = database.ref('Slogan/'+sloganId);
+var sloganId = Math.floor(Math.random() * 4);
+var sloganContent = database.ref('Slogan/' + sloganId);
 sloganContent.on('child_added', function(snapshot) {
     setSlogan(snapshot.val());
 });
 
-function setSlogan(data)
-{
+function setSlogan(data) {
     document.getElementById("sloganContent").innerHTML = data;
 }
 
-function removeDiv(id)
-{
+function removeDiv(id) {
     datalist.slice(id, 1);
-    $("#"+id).remove();
+    $("#" + id).remove();
 
     console.log(datalist);
 }
