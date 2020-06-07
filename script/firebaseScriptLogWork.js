@@ -16,22 +16,22 @@ firebase.analytics();
 */
 
 
-// // Your web app's Firebase configuration
-// var firebaseConfig = {
-//   apiKey: "AIzaSyAoeT6sC6LyFcoNLXVc6SG6e3aqBRhsqQg",
-//   authDomain: "workloggingsystem.firebaseapp.com",
-//   databaseURL: "https://workloggingsystem.firebaseio.com",
-//   projectId: "workloggingsystem",
-//   storageBucket: "workloggingsystem.appspot.com",
-//   messagingSenderId: "744010877071",
-//   appId: "1:744010877071:web:6c991081d7b21818b888fa",
-//   measurementId: "G-3CWF3NRSW6"
-// };
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+// Your web app's Firebase configuration
+ var firebaseConfig = {
+   apiKey: "AIzaSyAoeT6sC6LyFcoNLXVc6SG6e3aqBRhsqQg",
+   authDomain: "workloggingsystem.firebaseapp.com",
+   databaseURL: "https://workloggingsystem.firebaseio.com",
+   projectId: "workloggingsystem",
+   storageBucket: "workloggingsystem.appspot.com",
+   messagingSenderId: "744010877071",
+   appId: "1:744010877071:web:6c991081d7b21818b888fa",
+   measurementId: "G-3CWF3NRSW6"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
-// Bighnesh Trial firebase
+/*// Bighnesh Trial firebase
  //Your web app's Firebase configuration
    var firebaseConfig = {
    apiKey: "AIzaSyAaMjQnm3NnUmHHW2Smt6wJyRV7a0FIeFo",
@@ -45,7 +45,7 @@ firebase.analytics();
  };
 // Initialize Firebase
  firebase.initializeApp(firebaseConfig);
- firebase.analytics();
+ firebase.analytics();*/
 
 // Get a reference to the database service
 var database = firebase.database();
