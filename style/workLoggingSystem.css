@@ -148,11 +148,6 @@ button:hover {
     margin-left: 1%;
 }
 
-
-#editDetailsButton {
-    padding: 2% 20% 2% 20%;
-}
-
 .detailsRow {
     display: none;
 }
@@ -196,7 +191,8 @@ button:hover {
 }
 
 #backToMainFromCreateNewTask,
-#backToMainFromLogWork {
+#backToMainFromLogWork,
+#backToMainFromEditWork {
     padding-top: 1%;
     padding-bottom: 1%;
     background-color: #e65100;
@@ -204,7 +200,8 @@ button:hover {
 }
 
 #backToMainFromCreateNewTask:hover,
-#backToMainFromLogWork:hover {
+#backToMainFromLogWork:hover,
+#backToMainFromEditWork:hover {
     background-color: #69f0ae;
     cursor: pointer;
 }
@@ -214,24 +211,32 @@ button:hover {
 }
 
 #titleCreateNewTask,
-#desCreateNewTask {
+#desCreateNewTask,
+#editWorkTitle,
+#editWorkDes
+ {
     width: 100%;
     height: 100%;
 }
 
-#createNewTaskSubmit {
+#createNewTaskSubmit,
+#editTaskSubmit {
     text-align: end;
 }
 
-#submitNewTask {
+
+#submitNewTask,
+#submitEditTask {
     padding: 5% 10% 5% 10%;
 }
 
-.logWorkForm {
+.logWorkForm,
+.editWorkForm {
     padding: 5% 1% 1% 1%;
 }
 
-.logWorkFormComponent {
+.logWorkFormComponent,
+.editWorkFormComponent {
     background: linear-gradient(
         to Right,
         rgba(0, 229, 255, 1), 
@@ -249,7 +254,8 @@ button:hover {
     text-align: center;
 }
 
-#errorMessage {
+#errorMessage,
+#errorMessageEdit{
     color: red;
 }
 

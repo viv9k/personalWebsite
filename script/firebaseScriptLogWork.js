@@ -17,15 +17,15 @@ firebase.analytics();
 
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
-  apiKey: "AIzaSyAoeT6sC6LyFcoNLXVc6SG6e3aqBRhsqQg",
-  authDomain: "workloggingsystem.firebaseapp.com",
-  databaseURL: "https://workloggingsystem.firebaseio.com",
-  projectId: "workloggingsystem",
-  storageBucket: "workloggingsystem.appspot.com",
-  messagingSenderId: "744010877071",
-  appId: "1:744010877071:web:6c991081d7b21818b888fa",
-  measurementId: "G-3CWF3NRSW6"
+ var firebaseConfig = {
+   apiKey: "AIzaSyAoeT6sC6LyFcoNLXVc6SG6e3aqBRhsqQg",
+   authDomain: "workloggingsystem.firebaseapp.com",
+   databaseURL: "https://workloggingsystem.firebaseio.com",
+   projectId: "workloggingsystem",
+   storageBucket: "workloggingsystem.appspot.com",
+   messagingSenderId: "744010877071",
+   appId: "1:744010877071:web:6c991081d7b21818b888fa",
+   measurementId: "G-3CWF3NRSW6"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -169,6 +169,22 @@ function updateFromLogWorkData(id, logWorkTotalTime, status, workDone)
   updates['/Tasks/' + id + '/Status'] = status;
   updates['/Tasks/' + id + '/WorkDone'] = workDone;
 
+  return database.ref().update(updates);
+
+}
+function editData(id,title,status,priority,estimatedTime,difficulty,des,creator,category,assignee)
+{
+  var updates = {};
+  updates['/Tasks/' + id + '/Title'] = title;
+  updates['/Tasks/' + id + '/Status'] = status;
+  updates['/Tasks/' + id + '/Priority'] = priority;
+  updates['/Tasks/' + id + '/ET'] = estimatedTime;
+  updates['/Tasks/' + id + '/Difficulty'] = difficulty;
+  updates['/Tasks/' + id + '/Description'] = des;
+  updates['/Tasks/' + id + '/Creator'] = creator;
+  updates['/Tasks/' + id + '/Category'] = category;
+  updates['/Tasks/' + id + '/Assignee'] = assignee;
+  console.log("its working");
   return database.ref().update(updates);
 
 }
