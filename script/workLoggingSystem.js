@@ -92,6 +92,11 @@ $("#logWork").ready(function() {
     $("#logWork").hide(0);
 });
 
+$("#editWork").ready(function() {
+    $("#editWork").hide(0);
+    $("#errorMessageEdit").hide();
+});
+
 function openLogWork() {
     $("#bodyContent").hide(0);
     $('#loginBody').hide(0);
@@ -100,6 +105,7 @@ function openLogWork() {
 
     fillLogWork(selectedId);
 }
+
 
 
 function fillLogWork(id)
@@ -120,10 +126,59 @@ function fillLogWork(id)
     document.getElementById("logWorkComment").value = commentDateTime + datalist[id].assignee + " : ";
 }
 
+function openEditWork() {
+    $("#bodyContent").hide(0);
+    $('#loginBody').hide(0);
+    $("#head").hide(0);
+    $("#editWork").fadeIn(100);
+
+    fillEditWork(selectedId);    
+}
+
+function fillEditWork(id) {
+    document.getElementById("editWorkId").innerHTML = id;
+    document.getElementById("editWorkTitle").value = datalist[id].title;
+    document.getElementById("editWorkDes").value = datalist[id].des;
+    document.getElementById("editWorkPriority").value = datalist[id].priority;
+    document.getElementById("editWorkDifficulty").value = datalist[id].difficulty;
+    document.getElementById("editWorkCreator").innerHTML = datalist[id].creator;
+    document.getElementById("editWorkAssignee").value = datalist[id].assignee;
+    document.getElementById("editWorkEstimatedTime").value = datalist[id].estimatedTime;
+    document.getElementById("editWorkStatus").value = datalist[id].status;
+    document.getElementById("editWorkCategory").value = datalist[id].category;
+}
 $("#backToMainFromLogWork").click(function() {
     $("#logWork").hide(0);
     $("#head").show(200);
     $("#bodyContent").show(200);
+});
+
+$("#backToMainFromEditWork").click(function() {
+    $("#editWork").hide(0);
+    $("#head").show(200);
+    $("#bodyContent").show(200);
+});
+
+$("#editTaskSubmit").click(function() {
+    var id = document.getElementById("editWorkId").innerHTML;
+    var title = document.getElementById("editWorkTitle").value;
+    var des = document.getElementById("editWorkDes").value;
+    var priority = document.getElementById("editWorkPriority").value;
+    var difficulty = document.getElementById("editWorkDifficulty").value;
+    var creator = document.getElementById("editWorkCreator").innerHTML;
+    var assignee = document.getElementById("editWorkAssignee").value;
+    var estimatedTime = document.getElementById("editWorkEstimatedTime").value;
+    var status = document.getElementById("editWorkStatus").value;
+    var category = document.getElementById("editWorkCategory").value;
+
+    if (checkValidation(priority, difficulty, status, category, estimatedTime)) {
+        console.log("working");
+        editData(id,title,status,priority,estimatedTime,difficulty,des,creator,category,assignee);
+    } else {
+        console.log("wrong values");
+        $("#errorMessageEdit").show();
+    }
+    //editData(id,title,status,priority,estimatedTime,difficulty,des,creator,category,assignee);
 });
 
 $("#submitNewTask").click(function() {
@@ -168,24 +223,36 @@ function checkValidation(priority, difficulty, status, category, estimatedTime) 
     $("#estimatedTimeCreateNewTask").css("color", "black");
     $("#statusCreateNewTask").css("color", "black");
     $("#categoryCreateNewTask").css("color", "black");
+
+    $("#editWorkPriority").css("color", "black");
+    $("#editWorkDifficulty").css("color", "black");
+    $("#editWorkEstimatedTime").css("color", "black");
+    $("#editWorkStatus").css("color", "black");
+    $("#editWorkCategory").css("color", "black");
+
     if ((priority != "High" && priority != "Medium" && priority != "Low") || priority == "") {
         $("#priorityCreateNewTask").css("color", "red");
+        $("#editWorkPriority").css("color", "red");
         errorflag = 1;
     }
     if ((difficulty != "High" && difficulty != "Medium" && difficulty != "Low") || difficulty == "") {
         $("#difficultyCreateNewTask").css("color", "red");
+        $("#editWorkDifficulty").css("color", "red");
         errorflag = 1;
     }
     if ((status != "Icebox" && status != "Ready to start" && status != "Under Progress" && status != "Blocked" && status != "Completed") || status == "") {
         $("#statusCreateNewTask").css("color", "red");
+        $("#editWorkStatus").css("color", "red");
         errorflag = 1;
     }
-    if ((category != "Business" && category != "Development" && category != "Marketting") || category == "") {
+    if ((category != "Business" && category != "Development" && category != "Marketing") || category == "") {
         $("#categoryCreateNewTask").css("color", "red");
+        $("#editWorkCategory").css("color", "red");
         errorflag = 1;
     }
     if ((estimatedTime < 0) || (estimatedTime == "")) {
         $("#estimatedTimeCreateNewTask").css("color", "red");
+        $("#editWorkEstimatedTime").css("color", "red");
         errorflag = 1;
     }
     if (errorflag)
@@ -206,6 +273,7 @@ listnerTaskId.on('child_changed', function(data) {
     console.log(data.key);
 
     $("#logWork").hide(0);
+    $("#editWork").hide(0);
     $("#head").show(200);
     $("#successful").show(0);
     $("#bodyContent").fadeIn(500);

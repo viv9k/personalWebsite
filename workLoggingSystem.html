@@ -428,6 +428,137 @@
         </div>
     </div>
 
+    <!-- Edit work-->
+    <div class="row" id="editWork">
+        <div class="col">
+            <div class="row editWorkForm">
+                <div class="col-md-2"></div>
+                <div class="col editWorkFormComponent">
+                    <div class="row">
+                        <div class="col-md-1" id="backToMainFromEditWork">
+                            <span class="material-icons">
+                                keyboard_backspace
+                            </span>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <div class="row part">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col menu">Id:</div>
+                                <div class="col menuData" id="editWorkId"></div>
+                                <div class="col"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col-md-2 menu">Title:</div>
+                        <div class="col menuTitle">
+                            <input type="text" name="title" id="editWorkTitle">
+                        </div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col-md-2 menu">Description:</div>
+                        <div class="col menuDes">
+                            <input type="text" name="des" id="editWorkDes">
+                        </div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Priority:</div>
+                                <div class="col menuPriority">
+                                    <input type="text" name="priority" id="editWorkPriority" list="priorityTypes">
+                                    <datalist id="priorityTypes">
+                                        <option value="High"></option>
+                                        <option value="Medium"></option>
+                                        <option value="Low"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Difficulty:</div>
+                            <div class="col menuDifficulty">
+                                <input type="text" name="difficulty" id="editWorkDifficulty" list="difficultyTypes">
+                                <datalist id="difficultyTypes">
+                                    <option value="High"></option>
+                                    <option value="Medium"></option>
+                                    <option value="Low"></option>
+                                </datalist>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col menu">Creator:</div>
+                                <div class="col menuData" id="editWorkCreator"></div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4 menu">Assignee:</div>
+                                <div class="col menuAssignee">
+                                    <input type="text" name="assignee" id="editWorkAssignee">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Estimated Time:</div>
+                                <div class="col menuETime">
+                                    <input type="number" name="estimatedTime" id="editWorkEstimatedTime">
+                                    Hours.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Status:</div>
+                                <div class="col menuStatus">
+                                    <input type="text" name="status" id="editWorkStatus" list="statusTypes">
+                                    <datalist id="statusTypes">
+                                        <option value="Icebox"></option>
+                                        <option value="Ready to start"></option>
+                                        <option value="Under Progress"></option>
+                                        <option value="Blocked"></option>
+                                        <option value="Completed"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-4 menu">Category:</div>
+                                <div class="col menuCategory">
+                                    <input type="text" name="category" id="editWorkCategory" list="categoryTypes">
+                                    <datalist id="categoryTypes">
+                                        <option value="Business"></option>
+                                        <option value="Development"></option>
+                                        <option value="Marketing"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row formComponent">
+                        <div class="col-md-8">
+                            <p id="errorMessageEdit">*Please enter the valid details</p>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col-md-2" id="editTaskSubmit">
+                            <button id="editTaskSubmit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- On task Successfull -->
     <div class="row" id="successful">
         <div class="col">
