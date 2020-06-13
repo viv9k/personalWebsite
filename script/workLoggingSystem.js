@@ -107,7 +107,15 @@ function openLogWork() {
 }
 
 
-function fillLogWork(id) {
+
+function fillLogWork(id)
+{
+    var today = new Date();
+    var date = today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear();
+    var time = today.getHours() + ":" + today.getMinutes();
+    var commentDateTime = date + "|" + time +  "|" ;
+
+  
     document.getElementById("logWorkId").innerHTML = id;
     document.getElementById("logWorkTitle").innerHTML = datalist[id].title;
     document.getElementById("logWorkET").innerHTML = datalist[id].estimatedTime;
@@ -115,6 +123,7 @@ function fillLogWork(id) {
     document.getElementById("logWorkStatus").value = datalist[id].status;
     document.getElementById("logWorkDone").value = datalist[id].workDone;
     document.getElementById("logWorkRT").innerHTML = datalist[id].estimatedTime - datalist[id].logWorkTotalTime;
+    document.getElementById("logWorkComment").value = commentDateTime + datalist[id].assignee + " : ";
 }
 
 function openEditWork() {
@@ -307,10 +316,11 @@ $("#logWorkSubmit").click(function() {
     var logWorkTime = document.getElementById("logWorkTime").value;
     var status = document.getElementById("logWorkStatus").value;
     var workDone = document.getElementById("logWorkDone").value;
+    var comment = document.getElementById("logWorkComment").value;
 
     logWorkTotalTime = parseInt(logWorkTotalTime) + parseInt(logWorkTime);
 
-    var result = updateFromLogWorkData(id, logWorkTotalTime, status, workDone);
+    var result = updateFromLogWorkData(id, logWorkTotalTime, status, workDone, comment);
 
     console.log(result);
 

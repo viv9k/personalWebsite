@@ -162,12 +162,13 @@ function createInstance(id, data)
   datalist[id] = new Data(data);
 }
 
-function updateFromLogWorkData(id, logWorkTotalTime, status, workDone)
+function updateFromLogWorkData(id, logWorkTotalTime, status, workDone, comment)
 {
   var updates = {};
   updates['/Tasks/' + id + '/LogWorkTotalTime'] = logWorkTotalTime;
   updates['/Tasks/' + id + '/Status'] = status;
   updates['/Tasks/' + id + '/WorkDone'] = workDone;
+  updates['/Tasks/' + id + '/Comment'] = comment;
 
   return database.ref().update(updates);
 
