@@ -8,6 +8,11 @@ body {
     padding: 1% 5% 1% 5%;
 }
 
+#home{
+    padding-top: 1%;
+    padding-bottom: 3%;
+}
+
 #userName {
     font-size: 20px;
     font-family: 'Bree Serif', serif;

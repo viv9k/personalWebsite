@@ -12,6 +12,13 @@ $("#signOutButton").ready(function() {
     $("#signOutButton").hide(0);
 });
 
+$("#home").click(function() {
+    $('#createNewTask').hide(0);
+    $('#allTaskPage').hide(0);
+    $('#loginBody').hide(0);
+    $("#bodyContent").fadeIn(100);
+});
+
 $("#backToMain").click(function() {
     $('#loginBody').fadeOut(100);
     $("#bodyContent").fadeIn(100);
